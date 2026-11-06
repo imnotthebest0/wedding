@@ -1,0 +1,170 @@
+.music-settings-page {
+    box-sizing: border-box;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: clamp(1rem, 5vw, 3rem);
+    background:
+        linear-gradient(rgba(255, 250, 242, 0.18), rgba(255, 250, 242, 0.18)),
+        url("../images/music-background.jpeg") center / cover fixed;
+}
+
+.music-settings-card {
+    width: min(100%, 34rem);
+    box-sizing: border-box;
+    padding: clamp(1.25rem, 5vw, 2.5rem);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
+.music-back-link {
+    color: #111;
+    font-weight: 600;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(255, 250, 239, 0.8);
+}
+
+.music-back-link:hover {
+    text-decoration: underline;
+}
+
+.music-settings-card h1 {
+    margin: 1.5rem 0 0.5rem;
+    color: #111;
+    font-family: "Noto Serif Bengali", serif;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    text-shadow: 0 1px 1px rgba(255, 250, 239, 0.8);
+}
+
+.music-settings-intro {
+    margin: 0 0 1.5rem;
+    color: #111;
+    line-height: 1.7;
+    text-shadow: 0 1px 1px rgba(255, 250, 239, 0.85);
+}
+
+.music-file-label,
+.music-volume-label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    color: #111;
+    font-weight: 600;
+    text-shadow: 0 1px 1px rgba(255, 250, 239, 0.85);
+}
+
+.music-settings-card input[type="file"],
+.music-settings-card input[type="range"],
+.music-settings-card audio {
+    display: block;
+    width: 100%;
+}
+
+.music-settings-card input[type="file"] {
+    font: inherit;
+}
+
+.music-settings-card audio {
+    margin-top: 1rem;
+}
+
+.music-repeat-option {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 1.25rem;
+    color: #111;
+    text-shadow: 0 1px 1px rgba(255, 250, 239, 0.85);
+}
+
+.music-settings-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.music-settings-actions button {
+    min-height: 2.75rem;
+    padding: 0.6rem 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background: #681b31;
+    color: #fffaf0;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.music-settings-actions button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.music-settings-actions .secondary-button {
+    border: 1px solid #681b31;
+    background: transparent;
+    color: #111;
+}
+
+.music-settings-status {
+    min-height: 1.5em;
+    margin: 1rem 0 0;
+    color: #111;
+    line-height: 1.5;
+    font-weight: 600;
+    text-shadow: 0 1px 1px rgba(255, 250, 239, 0.85);
+}
+
+.music-settings-page :focus-visible,
+.shehnai-link:focus-visible {
+    outline: 3px solid #b08331;
+    outline-offset: 4px;
+}
+
+.shehnai-link {
+    display: block;
+    border-radius: 0.5rem;
+}
+
+.wedding-music-player {
+    width: clamp(160px, 30vw, 260px);
+}
+
+.music-player-status {
+    color: #111;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+    .music-settings-page {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding: max(1rem, env(safe-area-inset-top)) 1rem max(1rem, env(safe-area-inset-bottom));
+        background-attachment: scroll;
+    }
+
+    .music-settings-card {
+        width: 100%;
+        padding: 1rem 0;
+    }
+
+    .music-settings-card input[type="file"],
+    .music-settings-card input[type="range"] {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .music-settings-actions {
+        flex-direction: column;
+    }
+
+    .music-settings-actions button {
+        width: 100%;
+        min-height: 3rem;
+    }
+}

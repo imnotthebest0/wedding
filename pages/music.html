@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Music Settings</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/music-settings.css">
+<link rel="stylesheet" href="../assets/css/premium.css">
+</head>
+<body class="music-settings-page">
+    <main class="music-settings-card">
+        <a class="music-back-link" href="../index.html">← Back to invitation</a>
+        <h1>Wedding Music Settings</h1>
+        <p class="music-settings-intro">Choose an audio file from your device. Your music is stored only in this browser.</p>
+
+        <label class="music-file-label" for="music-file">Choose an audio file</label>
+        <input id="music-file" type="file" accept="audio/*">
+
+        <audio id="music-preview" controls preload="metadata" aria-label="Selected wedding music preview" hidden></audio>
+
+        <label class="music-volume-label" for="music-volume">Volume: <output id="music-volume-value" for="music-volume">70%</output></label>
+        <input id="music-volume" type="range" min="0" max="100" value="70">
+
+        <label class="music-repeat-option">
+            <input id="music-repeat" type="checkbox">
+            Repeat track
+        </label>
+
+        <div class="music-settings-actions">
+            <button id="save-music" type="button" disabled>Save music</button>
+            <button id="clear-music" type="button" class="secondary-button" hidden>Remove saved music</button>
+        </div>
+        <p id="music-settings-status" class="music-settings-status" role="status" aria-live="polite"></p>
+    </main>
+    <div id="persistent-music-player">
+        <audio id="wedding-music" class="wedding-music-player" src="../assets/audio/wedding-shehnai.mp3" preload="metadata" aria-label="Wedding shehnai music" hidden></audio>
+        <span id="music-player-status" class="music-player-status" role="status" aria-live="polite"></span>
+    </div>
+    <script src="../assets/js/scroll-cue.js" defer></script>
+    <script src="../assets/js/music.js" defer></script>
+    <script src="../assets/js/premium.js" defer></script>
+</body>
+</html>

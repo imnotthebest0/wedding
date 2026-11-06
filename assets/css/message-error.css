@@ -1,0 +1,139 @@
+.message-error-page {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    background:
+        linear-gradient(rgba(247, 240, 226, 0.08), rgba(247, 240, 226, 0.08)),
+        url("../images/message-page-background.png") center / cover no-repeat,
+        #f7f0e2;
+}
+
+.message-error-card {
+    width: min(100%, 32rem);
+    box-sizing: border-box;
+    padding: clamp(2rem, 7vw, 3.5rem);
+    border: 1px solid rgba(176, 131, 49, 0.4);
+    border-radius: 1.25rem;
+    background:
+        linear-gradient(rgba(255, 252, 245, 0.72), rgba(255, 252, 245, 0.72)),
+        url("../images/message-page-background.png") right top / auto 100% no-repeat,
+        rgba(255, 252, 245, 0.94);
+    color: #3b0d1b;
+    text-align: center;
+    box-shadow: 0 1rem 3rem rgba(59, 13, 27, 0.14);
+}
+
+.message-error-animation {
+    position: relative;
+    display: grid;
+    width: 7rem;
+    height: 7rem;
+    margin: 0 auto 1.5rem;
+    place-items: center;
+    color: #a53b3b;
+}
+
+.message-error-animation svg {
+    position: relative;
+    z-index: 1;
+    width: 4.5rem;
+    height: 4.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.5;
+    animation: message-error-bob 2s ease-in-out infinite;
+}
+
+.message-error-orbit {
+    position: absolute;
+    inset: 0.35rem;
+    border: 1px solid rgba(165, 59, 59, 0.4);
+    border-radius: 50%;
+    animation: message-error-pulse 2.4s ease-out infinite;
+}
+
+.message-error-orbit-two {
+    animation-delay: 1.2s;
+}
+
+.message-error-code {
+    margin: 0 0 0.5rem;
+    color: #9c6b24;
+    font: 700 0.75rem/1.4 "Cinzel", Georgia, serif;
+    letter-spacing: 0.16em;
+}
+
+.message-error-card h1 {
+    margin: 0;
+    font: 700 clamp(2rem, 7vw, 3rem)/1.15 "Cinzel", Georgia, serif;
+}
+
+.message-error-description {
+    max-width: 24rem;
+    margin: 1rem auto 1.75rem;
+    color: #604d43;
+    line-height: 1.6;
+}
+
+.message-error-back {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.65rem 1rem;
+    border: 1px solid #6b1729;
+    border-radius: 999px;
+    background: #6b1729;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.message-error-back:hover {
+    transform: translateY(-2px);
+    background: #4b1020;
+}
+
+.message-error-back:focus-visible {
+    outline: 3px solid #b08331;
+    outline-offset: 3px;
+}
+
+@keyframes message-error-pulse {
+    0% {
+        opacity: 0.7;
+        transform: scale(0.7);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.35);
+    }
+}
+
+@keyframes message-error-bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-0.3rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .message-error-animation svg,
+    .message-error-orbit {
+        animation: none;
+    }
+
+    .message-error-orbit {
+        opacity: 0.35;
+    }
+}

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en" class="wedding-home">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animesh and Arpita's Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Great+Vibes&family=Noto+Serif+Bengali:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/premium.css">
+</head>
+<body>
+    <canvas class="flying-butterfly" aria-hidden="true"></canvas>
+    <video class="butterfly-video-source" autoplay muted loop playsinline aria-hidden="true" tabindex="-1">
+        <source src="assets/images/WhatsApp%20Video%202026-11-06%20at%203.01.41%20AM.mp4" type="video/mp4">
+    </video>
+    <div class="invitation-intro">
+        <main class="hero">
+            <nav class="hero-wedding-cards" aria-label="Wedding cards">
+                <a class="wedding-card-option wedding-card-option-boy" href="pages/boy-wedding-card.html">
+                    <img src="assets/images/boy-wedding-logo.png" alt="" aria-hidden="true">
+                    <span>পাত্র</span>
+                </a>
+                <span class="wedding-card-ribbon" aria-hidden="true">
+                    <svg viewBox="0 0 112 56">
+                        <defs>
+                            <linearGradient id="wedding-ribbon-silk" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="0" stop-color="#f0b65a"/>
+                                <stop offset="0.2" stop-color="#a9223b"/>
+                                <stop offset="0.55" stop-color="#74152d"/>
+                                <stop offset="0.82" stop-color="#b92b3c"/>
+                                <stop offset="1" stop-color="#f6d47f"/>
+                            </linearGradient>
+                            <linearGradient id="wedding-ribbon-thread" x1="0" x2="1">
+                                <stop offset="0" stop-color="#f9e6a3"/>
+                                <stop offset="0.5" stop-color="#fff9dc"/>
+                                <stop offset="1" stop-color="#c79639"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M0 15C20 13 32 19 49 26L44 36C25 28 15 23 0 25Z" fill="url(#wedding-ribbon-silk)" stroke="url(#wedding-ribbon-thread)" stroke-width="1.5"/>
+                        <path d="M112 15C92 13 80 19 63 26L68 36C87 28 97 23 112 25Z" fill="url(#wedding-ribbon-silk)" stroke="url(#wedding-ribbon-thread)" stroke-width="1.5"/>
+                        <path d="M2 19C19 18 31 23 44 29M110 19C93 18 81 23 68 29" fill="none" stroke="url(#wedding-ribbon-thread)" stroke-width="1" opacity="0.9"/>
+                        <path d="M50 25C35 6 24 15 39 28L51 34M62 25C77 6 88 15 73 28L61 34" fill="url(#wedding-ribbon-silk)" stroke="url(#wedding-ribbon-thread)" stroke-width="1.5" stroke-linejoin="round"/>
+                        <path d="M56 19C52 24 52 29 56 33C60 29 60 24 56 19Z" fill="url(#wedding-ribbon-thread)" stroke="#8f1d34" stroke-width="1.2"/>
+                        <path d="M48 30C50 21 62 21 64 30C62 39 59 44 56 47C53 44 50 39 48 30Z" fill="#9d1c35" stroke="url(#wedding-ribbon-thread)" stroke-width="1.5"/>
+                        <path d="M56 25C53 29 52 33 56 36C60 33 59 29 56 25ZM56 29C50 28 49 33 55 35M56 29C62 28 63 33 57 35" fill="none" stroke="#f8df98" stroke-width="1.1" stroke-linecap="round"/>
+                        <circle cx="56" cy="31" r="2.2" fill="#f9e6a3" stroke="#fff9dc" stroke-width="0.8"/>
+                        <path d="M56 47v3" stroke="url(#wedding-ribbon-thread)" stroke-width="1.2"/>
+                        <circle cx="56" cy="52" r="2" fill="#f2d88a" stroke="#a9223b" stroke-width="0.8"/>
+                    </svg>
+                </span>
+                <a class="wedding-card-option wedding-card-option-girl" href="pages/girl-wedding-card.html">
+                    <img src="assets/images/girl-wedding-logo.png" alt="" aria-hidden="true">
+                    <span>পাত্রী</span>
+                </a>
+            </nav>
+            <h1 class="wedding-title hero-weds-title">
+                <span class="couple-names">Animesh <span class="weds-word">weds</span> Arpita</span>
+            </h1>
+            <div class="falling-leaves" aria-hidden="true">
+                <span class="leaf yellow" style="--x: 3%; --start-y: 6%; --drift: 8vw; --delay: -2s; --duration: 13s;"></span>
+                <span class="leaf green" style="--x: 10%; --start-y: 15%; --drift: -6vw; --delay: -8s; --duration: 16s;"></span>
+                <span class="leaf green" style="--x: 22%; --start-y: 2%; --drift: 9vw; --delay: -5s; --duration: 14s;"></span>
+                <span class="leaf yellow" style="--x: 36%; --start-y: 4%; --drift: -8vw; --delay: -10s; --duration: 17s;"></span>
+                <span class="leaf green" style="--x: 64%; --start-y: 2%; --drift: 7vw; --delay: -4s; --duration: 15s;"></span>
+                <span class="leaf yellow" style="--x: 78%; --start-y: 8%; --drift: -9vw; --delay: -7s; --duration: 14s;"></span>
+                <span class="leaf green" style="--x: 90%; --start-y: 15%; --drift: 6vw; --delay: -3s; --duration: 16s;"></span>
+                <span class="leaf yellow" style="--x: 97%; --start-y: 5%; --drift: -7vw; --delay: -9s; --duration: 15s;"></span>
+                <span class="flower pink" style="--x: 14%; --start-y: 24%; --drift: 7vw; --delay: -3s; --duration: 15s;"></span>
+                <span class="flower lavender" style="--x: 20%; --start-y: 34%; --drift: -6vw; --delay: -11s; --duration: 17s;"></span>
+                <span class="flower lavender" style="--x: 65%; --start-y: 28%; --drift: 8vw; --delay: -6s; --duration: 16s;"></span>
+                <span class="flower pink" style="--x: 74%; --start-y: 38%; --drift: -7vw; --delay: -13s; --duration: 18s;"></span>
+                <span class="flower lavender" style="--x: 87%; --start-y: 25%; --drift: 6vw; --delay: -9s; --duration: 15s;"></span>
+            </div>
+        </main>
+        <section class="shehnai-section reveal" style="--reveal-delay: 80ms;" aria-label="Wedding shehnai decoration">
+            <div class="music-notes" aria-hidden="true">
+            </div>
+            <svg class="wedding-diya" viewBox="0 0 64 64" role="img" aria-label="दीया">
+                <defs>
+                    <radialGradient id="diya-halo-gradient">
+                        <stop offset="0" stop-color="#fff5ad" stop-opacity="0.9"></stop>
+                        <stop offset="1" stop-color="#ff9d27" stop-opacity="0"></stop>
+                    </radialGradient>
+                    <linearGradient id="diya-flame-gradient" x1="0" y1="1" x2="0" y2="0">
+                        <stop offset="0" stop-color="#ed4b12"></stop>
+                        <stop offset="0.5" stop-color="#ff9d24"></stop>
+                        <stop offset="1" stop-color="#fff9cf"></stop>
+                    </linearGradient>
+                    <linearGradient id="diya-bowl-gradient" x1="0" y1="0" x2="0.9" y2="1">
+                        <stop offset="0" stop-color="#fff1ae"></stop>
+                        <stop offset="0.3" stop-color="#e6ad45"></stop>
+                        <stop offset="0.65" stop-color="#bf7227"></stop>
+                        <stop offset="1" stop-color="#77391c"></stop>
+                    </linearGradient>
+                </defs>
+                <ellipse class="diya-halo" cx="32" cy="22" rx="14" ry="17" fill="url(#diya-halo-gradient)"></ellipse>
+                <g class="diya-flame">
+                    <path d="M32 5c1 5 7 8 7 15 0 5-3 8-7 10-5-2-8-5-8-10 0-6 5-10 8-15Z" fill="url(#diya-flame-gradient)"></path>
+                    <path d="M32 16c2 3 4 5 3 8-.5 2-1.5 3-3 4-2-1-3-2.5-3-4.5 0-2.5 2-5 3-7.5Z" fill="#fff9d6"></path>
+                </g>
+                <path d="M29 32c1 2 1 4 1 6" fill="none" stroke="#63371e" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M10 36c6 4 13 6 22 6s16-2 22-6l-5 11c-8 7-26 7-34 0l-5-11Z" fill="url(#diya-bowl-gradient)" stroke="#75421f" stroke-width="1.8" stroke-linejoin="round"></path>
+                <path d="M10 36c6 4 13 6 22 6s16-2 22-6" fill="none" stroke="#fff2b4" stroke-width="2.5" stroke-linecap="round"></path>
+                <path d="M18 45c3 2 6 3 9 3m10 0c3-.5 6-1.5 9-3" fill="none" stroke="#ffe18b" stroke-width="1.4" stroke-linecap="round"></path>
+                <circle cx="32" cy="45" r="2" fill="#ffe9a1"></circle>
+                <circle cx="23" cy="44" r="1" fill="#fff1bd"></circle>
+                <circle cx="41" cy="44" r="1" fill="#fff1bd"></circle>
+                <ellipse cx="32" cy="53" rx="13" ry="2.5" fill="#9a5c28"></ellipse>
+            </svg>
+            <div class="wedding-clock" aria-label="Current Indian Standard Time clock">
+                <div class="clock-face" aria-hidden="true">
+                    <span class="clock-number-12">XII</span>
+                    <span class="clock-number-3">III</span>
+                    <span class="clock-number-6">VI</span>
+                    <span class="clock-number-9">IX</span>
+                    <div class="clock-hand hour"></div>
+                    <div class="clock-hand minute"></div>
+                    <div class="clock-hand second"></div>
+                    <div class="clock-center"></div>
+                </div>
+                <div class="clock-label" id="ist-time">--:--:-- IST</div>
+            </div>
+            <a class="shehnai-link" href="pages/music.html" aria-label="Open wedding music settings with tabla and shehnai">
+                <img class="shehnai-emblem" src="assets/images/tabla-shehnai-emblem.png" alt="Decorative tabla and shehnai on a gold wedding medallion">
+            </a>
+        </section>
+        <section class="wedding-photos-cta reveal" style="--reveal-delay: 120ms;" aria-label="Wedding photos and guest chat">
+            <a class="wedding-photos-link" href="https://photos.app.goo.gl/CdMu52KywsavvXfi7">
+                <svg class="wedding-photos-icon" viewBox="0 0 32 32" aria-hidden="true">
+                    <path fill="#4285F4" d="M16 2a7 7 0 0 0-7 7v5h7a7 7 0 0 0 0-12Z"/>
+                    <path fill="#34A853" d="M30 16a7 7 0 0 0-7-7h-5v7a7 7 0 0 0 12 0Z"/>
+                    <path fill="#FBBC04" d="M16 30a7 7 0 0 0 7-7v-5h-7a7 7 0 0 0 0 12Z"/>
+                    <path fill="#EA4335" d="M2 16a7 7 0 0 0 7 7h5v-7A7 7 0 0 0 2 16Z"/>
+                </svg>
+                <span>View and share selfies/group photos</span>
+            </a>
+            <a class="wedding-chat-link wedding-chat-unavailable" href="pages/message-error.html" aria-label="Message guests on WhatsApp, currently unavailable">
+                <svg class="wedding-chat-icon" viewBox="0 0 32 32" aria-hidden="true">
+                    <circle cx="16" cy="15" r="13" fill="none" stroke="currentColor" stroke-width="2.5"/>
+                    <path d="M7 25l1.5-5M12 9.5c.5-.6 1.2-.5 1.6.1l1.2 1.8c.3.5.2 1-.2 1.4l-.8.8c1 1.8 2.4 3.2 4.2 4.2l.8-.8c.4-.4.9-.5 1.4-.2l1.8 1.2c.6.4.7 1.1.1 1.6-1.1 1.1-2.6 1.4-4.1.8-3.8-1.5-6.8-4.5-8.3-8.3-.6-1.5-.3-3 .8-4.1Z" fill="currentColor"/>
+                </svg>
+                <span>Message guests on WhatsApp</span>
+            </a>
+        </section>
+    </div>
+    <div class="ceremony-reels" role="region" aria-label="Wedding ceremonies" tabindex="0">
+    <div class="event-sections">
+        <section class="event-section adan-pradan aiburo-bhaat-section first-ceremony-section reveal" id="adan-pradan" data-page-id="adan-pradan" aria-label="আদান-প্রদান, আশীর্বাদ ও আইবুড়োভাত">
+            <div class="event-list" lang="bn">
+                <div class="event-title-card">
+                    <h2 class="event-title">আদান-প্রদান</h2>
+                    <h2 class="event-title">আশীর্বাদ</h2>
+                    <h2 class="event-title">আইবুড়োভাত</h2>
+                </div>
+            </div>
+            <a class="section-page-link" href="pages/adan-pradan.html" aria-label="Open ceremony page: আদান-প্রদান, আশীর্বাদ ও আইবুড়োভাত"></a>
+        </section>
+        <section class="event-section other-events shankha-pola-section reveal" style="--reveal-delay: 120ms;" id="shankha-pola" data-page-id="shankha-pola" aria-label="শাঁখা-পলা, গঙ্গা-নিমন্ত্রণ, দধিমঙ্গল ও নন্দীমুখ">
+            <div class="event-list" lang="bn">
+                <div class="event-title-card">
+                    <h2 class="event-title">শাঁখা-পলা</h2>
+                    <h2 class="event-title">গঙ্গা-নিমন্ত্রণ</h2>
+                    <h2 class="event-title">দধিমঙ্গল</h2>
+                    <h2 class="event-title">নন্দীমুখ</h2>
+                </div>
+            </div>
+            <a class="section-page-link" href="pages/shankha-pola.html" aria-label="Open ceremony page: শাঁখা-পলা, গঙ্গা-নিমন্ত্রণ, দধিমঙ্গল ও নন্দীমুখ"></a>
+        </section>
+    </div>
+    <div class="event-sections">
+        <section class="event-section adan-pradan gaye-holud-section reveal" id="gaye-holud" data-page-id="gaye-holud" aria-label="গায়ে হলুদ ও তত্ত্ব">
+            <div class="event-list" lang="bn">
+                <div class="event-title-card">
+                    <h2 class="event-title">গায়ে হলুদ</h2>
+                    <h2 class="event-title">তত্ত্ব</h2>
+                </div>
+            </div>
+            <a class="section-page-link" href="pages/gaye-holud.html" aria-label="Open ceremony page: গায়ে হলুদ ও তত্ত্ব"></a>
+        </section>
+        <section class="event-section other-events bor-boron-section reveal" style="--reveal-delay: 120ms;" id="bor-boron" data-page-id="bor-boron" aria-label="বরবরণ এবং পট্টবস্ত্র">
+            <div class="event-list" lang="bn">
+                <div class="event-title-card">
+                    <h2 class="event-title">বরবরণ</h2>
+                    <span class="event-title-connector">এবং</span>
+                    <h2 class="event-title">পট্টবস্ত্র</h2>
+                </div>
+            </div>
+            <a class="section-page-link" href="pages/bor-boron.html" aria-label="Open ceremony page: বরবরণ এবং পট্টবস্ত্র"></a>
+        </section>
+    </div>
+    <div class="event-sections">
+        <section class="event-section adan-pradan subha-dristi-section reveal" id="subha-dristi" data-page-id="subha-dristi" aria-label="শুভদৃষ্টি, মালাবদল ও সম্প্রদান">
+            <div class="event-list" lang="bn">
+                <div class="event-title-card">
+                    <h2 class="event-title">শুভদৃষ্টি</h2>
+                    <h2 class="event-title">মালাবদল</h2>
+                    <h2 class="event-title">সম্প্রদান</h2>
+                </div>
+            </div>
+            <a class="section-page-link" href="pages/subha-dristi.html" aria-label="Open ceremony page: শুভদৃষ্টি, মালাবদল ও সম্প্রদান"></a>
+        </section>
+        <section class="event-section other-events saptapadi-section reveal" style="--reveal-delay: 120ms;" id="saptapadi" data-page-id="saptapadi" aria-label="যজ্ঞ, সপ্তপদী ও অঞ্জলি">
+            <div class="event-list" lang="bn">
+                <div class="event-title-card">
+                    <h2 class="event-title">যজ্ঞ</h2>
+                    <span class="event-title-connector" aria-hidden="true">,</span>
+                    <h2 class="event-title">সপ্তপদী</h2>
+                    <span class="event-title-connector" aria-hidden="true">,</span>
+                    <h2 class="event-title">অঞ্জলি</h2>
+                </div>
+            </div>
+            <a class="section-page-link" href="pages/saptapadi.html" aria-label="Open ceremony page: যজ্ঞ, সপ্তপদী ও অঞ্জলি"></a>
+        </section>
+    </div>
+    <div class="event-sections">
+        <section class="event-section adan-pradan sindoor-daan-section reveal" id="sindoor-daan" data-page-id="sindoor-daan" aria-label="সিঁদুর দান">
+            <div class="event-list" lang="bn">
+                <h2 class="event-title">সিঁদুর দান</h2>
+            </div>
+            <a class="section-page-link" href="pages/sindoor-daan.html" aria-label="Open ceremony page: সিঁদুর দান"></a>
+        </section>
+        <section class="event-section other-events biday-section reveal" style="--reveal-delay: 120ms;" id="biday" data-page-id="biday" aria-label="বিদায় ও বধূ বরণ">
+            <div class="event-list" lang="bn">
+                <div class="event-title-card">
+                    <h2 class="event-title">বিদায়</h2>
+                    <h2 class="event-title">বধূ বরণ</h2>
+                </div>
+            </div>
+            <a class="section-page-link" href="pages/biday.html" aria-label="Open ceremony page: বিদায় ও বধূ বরণ"></a>
+        </section>
+    </div>
+    <section class="event-section bou-bhat reveal" id="bou-bhat" data-page-id="bou-bhat" aria-label="বৌভাত">
+        <div class="event-list" lang="bn">
+            <h2 class="event-title">বৌভাত</h2>
+        </div>
+        <div class="bou-bhat-poem" lang="bn" aria-label="বৌভাতের কবিতা">
+            <p class="bou-bhat-poem-side bou-bhat-poem-left">
+                দ্বয় হৃদয় এক সুরে সমাবদ্ধ,<br>
+                প্রেমের সূত্রে জীবন সংবদ্ধ।<br>
+                চন্দ্রকিরণে পুষ্পিত উপবন,<br>
+                তোমার স্মিতময় নীল গগন,<br>
+                প্রেমপথে অনাবিল আশাভরা মন।
+            </p>
+            <p class="bou-bhat-poem-side bou-bhat-poem-right">
+                এক অর্ণব দুই তীর,<br>
+                এক প্রাণ দুই মূল।<br>
+                অদ্য হইতে অনন্তকাল,<br>
+                তোমরা দুজনে একই সুর।<br>
+                হৃদয়তন্ত্রীতে আবদ্ধ দ্বয় প্রাণ,<br>
+                অদ্য হইতে চিরদিন এক সঙ্গে যান।<br>
+                শুভ বিবাহ হোক মঙ্গলময়।
+            </p>
+        </div>
+        <a class="section-page-link" href="pages/bou-bhat.html" aria-label="Open ceremony page: বৌভাত"></a>
+    </section>
+    </div>
+    <div class="future-content-space">
+        <div class="wedding-procession reveal" role="img" aria-label="Four Indian wedding attendants carry a decorated wooden palki with a seated bride along a village road with coconut palms and mud houses, moving from right to left">
+            <svg class="procession-art" viewBox="0 0 1520 260" aria-hidden="true">
+                <defs>
+                    <linearGradient id="palki-wood" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0" stop-color="#b8753c"/>
+                        <stop offset="0.45" stop-color="#75401f"/>
+                        <stop offset="1" stop-color="#482718"/>
+                    </linearGradient>
+                    <linearGradient id="palki-gold" x1="0" x2="1" y1="0" y2="1">
+                        <stop offset="0" stop-color="#fff0b0"/>
+                        <stop offset="0.5" stop-color="#d4a638"/>
+                        <stop offset="1" stop-color="#8b5a20"/>
+                    </linearGradient>
+                    <linearGradient id="bride-sari" x1="0" x2="1" y1="0" y2="1">
+                        <stop offset="0" stop-color="#ff4738"/>
+                        <stop offset="0.55" stop-color="#d20f25"/>
+                        <stop offset="1" stop-color="#8f1026"/>
+                    </linearGradient>
+                    <linearGradient id="carrier-sherwani" x1="0" x2="1" y1="0" y2="1">
+                        <stop offset="0" stop-color="#f04c9b"/>
+                        <stop offset="0.55" stop-color="#cf2879"/>
+                        <stop offset="1" stop-color="#8f1d59"/>
+                    </linearGradient>
+                    <linearGradient id="carrier-turban" x1="0" x2="1" y1="0" y2="1">
+                        <stop offset="0" stop-color="#fff47a"/>
+                        <stop offset="0.55" stop-color="#ffbf24"/>
+                        <stop offset="1" stop-color="#e77b13"/>
+                    </linearGradient>
+                    <linearGradient id="village-land" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0" stop-color="#b6d77b"/>
+                        <stop offset="1" stop-color="#6eaa63"/>
+                    </linearGradient>
+                    <linearGradient id="village-road" x1="0" x2="0" y1="0" y2="1">
+                        <stop offset="0" stop-color="#e4bd7d"/>
+                        <stop offset="0.55" stop-color="#c99455"/>
+                        <stop offset="1" stop-color="#ad7548"/>
+                    </linearGradient>
+                    <g id="village-bird-flock" fill="none" stroke="#635c51" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M0 9 Q5 3 10 9 Q15 15 20 9"/>
+                        <path d="M25 0 Q30 -6 35 0 Q40 6 45 0"/>
+                        <path d="M55 12 Q59 7 63 12 Q67 17 71 12"/>
+                    </g>
+                    <g id="village-sun">
+                        <circle r="30" fill="#ffd45e" opacity="0.16"/>
+                        <g fill="none" stroke="#f2ae3b" stroke-width="2.5" stroke-linecap="round">
+                            <path d="M0-38v7m0 62v7m38-38h-7m-62 0h-7M27-27l-5 5m-44 44-5 5m54 0-5-5m-44-44-5-5"/>
+                        </g>
+                        <circle r="22" fill="#ffc94f" stroke="#e49a2d" stroke-width="2"/>
+                        <path d="M-15 2 Q-5-4 5 1 Q12 4 17 0 Q12 14 0 16 Q-12 14-15 2Z" fill="#ffe58c" opacity="0.8"/>
+                        <circle cx="-7" cy="-8" r="4" fill="#fff3ba" opacity="0.75"/>
+                    </g>
+                    <g id="village-background-scene">
+                        <path d="M0 180 Q115 171 240 182 T480 179 T760 183 L760 260 L0 260Z" fill="url(#village-land)"/>
+                        <use href="#village-sun" x="492" y="52"/>
+                        <path d="M0 190 Q150 184 278 191 T520 188 T760 193 L760 199 Q575 194 418 200 T110 198 L0 202Z" fill="#87bd68" opacity="0.72"/>
+                        <path d="M0 197 Q112 191 240 198 T480 195 T760 199 L760 225 Q590 220 425 225 T110 224 L0 228Z" fill="url(#village-road)"/>
+                        <path d="M0 198 Q112 192 240 199 T480 196 T760 200" fill="none" stroke="#f1d29a" stroke-width="2.5" opacity="0.95"/>
+                        <path d="M0 225 Q112 219 240 226 T480 223 T760 227" fill="none" stroke="#956643" stroke-width="2" opacity="0.8"/>
+                        <path d="M24 211 Q112 205 201 212 M262 213 Q350 207 438 214 M499 211 Q587 205 675 212" fill="none" stroke="#f3d9a8" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="24 17" opacity="0.9"/>
+                        <path d="M55 188l8-5 8 5m86 1 7-4 7 4m477 2 8-5 8 5m42-1 7-4 7 4" fill="none" stroke="#4f9a52" stroke-width="2" stroke-linecap="round"/>
+                        <g class="village-house">
+                            <path d="M171 184 L174 154 Q197 132 225 151 L230 184Z" fill="#d98b4e" stroke="#9c5e37" stroke-width="2"/>
+                            <path d="M166 155 Q197 127 230 151 L224 157 Q198 140 173 161Z" fill="#79503a"/>
+                            <path d="M168 154 Q197 130 229 151" fill="none" stroke="#593729" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M197 184 L197 166 Q203 158 210 166 L210 184Z" fill="#57372c"/>
+                            <path d="M176 164h11v9h-11z" fill="#4a8c83" stroke="#79503a" stroke-width="1.5"/>
+                            <path d="M177 168h9m-4-4v9" stroke="#f3d9a1" stroke-width="1"/>
+                            <path d="M170 184h61" stroke="#875436" stroke-width="2"/>
+                            <path d="M174 176 Q198 180 227 176" fill="none" stroke="#efb86e" stroke-width="2"/>
+                        </g>
+                        <g class="village-house">
+                            <path d="M522 185 L526 157 Q550 134 577 153 L581 185Z" fill="#e1ae57" stroke="#a87539" stroke-width="2"/>
+                            <path d="M518 158 Q549 130 581 153 L575 159 Q550 143 525 164Z" fill="#8b4937"/>
+                            <path d="M520 157 Q550 133 580 153" fill="none" stroke="#663629" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M548 185 L548 167 Q555 159 562 167 L562 185Z" fill="#4c342e"/>
+                            <path d="M530 165h11v9h-11z" fill="#668e58" stroke="#79503a" stroke-width="1.5"/>
+                            <path d="M531 169h9m-4-4v9" stroke="#f6e2ae" stroke-width="1"/>
+                            <path d="M521 185h61" stroke="#8c5734" stroke-width="2"/>
+                            <path d="M526 176 Q551 180 578 176" fill="none" stroke="#f1ca76" stroke-width="2"/>
+                        </g>
+                        <g id="coconut-palm-left" class="coconut-palm" opacity="0.88">
+                            <path d="M83 198 Q89 152 77 103 Q72 80 82 57" fill="none" stroke="#795439" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M79 159l9 1m-11-17 10 1m-12-17 10 1" stroke="#c49b67" stroke-width="2"/>
+                            <path d="M82 59 Q58 43 43 51 Q58 51 77 64 Q54 59 41 70 Q60 66 80 70 Q62 77 57 90 Q71 80 83 69 Q83 86 91 96 Q91 79 87 66 Q103 80 116 79 Q105 69 88 62 Q108 64 122 56 Q104 55 85 59 Q98 48 99 37 Q87 45 82 59Z" fill="#3c9b4f" stroke="#28783c" stroke-width="1.5"/>
+                            <path d="M74 57 Q59 41 52 38 Q61 51 78 63 M87 59 Q105 41 116 39 Q106 53 87 65 M82 58 Q80 39 85 29 Q89 42 85 60" fill="none" stroke="#79c85a" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="80" cy="61" r="3" fill="#92704a"/>
+                            <circle cx="86" cy="63" r="3" fill="#92704a"/>
+                        </g>
+                        <g id="coconut-palm-right" class="coconut-palm" opacity="0.86">
+                            <path d="M694 198 Q688 156 700 111 Q705 86 696 63" fill="none" stroke="#795439" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M692 160l-9 1m12-18-10 1m12-17-10 1" stroke="#c49b67" stroke-width="2"/>
+                            <path d="M696 65 Q720 48 735 56 Q720 57 700 70 Q722 64 736 76 Q717 72 697 76 Q715 83 720 96 Q706 86 695 75 Q694 92 686 102 Q686 84 690 72 Q674 86 661 84 Q672 74 689 67 Q669 69 655 61 Q673 60 693 64 Q680 53 679 42 Q691 50 696 65Z" fill="#3c9b4f" stroke="#28783c" stroke-width="1.5"/>
+                            <path d="M704 63 Q719 47 726 44 Q717 57 700 69 M691 64 Q673 46 662 44 Q672 58 691 70 M696 63 Q698 44 693 35 Q689 47 693 65" fill="none" stroke="#79c85a" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="698" cy="67" r="3" fill="#92704a"/>
+                            <circle cx="692" cy="69" r="3" fill="#92704a"/>
+                        </g>
+                        <use href="#coconut-palm-left" transform="translate(235 70) scale(0.65)"/>
+                        <use href="#coconut-palm-right" transform="translate(400 50) scale(0.75)"/>
+                        <g class="village-mango-tree">
+                            <path d="M329 199 Q336 163 333 136" fill="none" stroke="#79513a" stroke-width="9" stroke-linecap="round"/>
+                            <path d="M333 143 Q315 126 306 111 M334 138 Q352 120 359 103 M332 135 Q332 111 328 98" fill="none" stroke="#79513a" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M283 119 Q282 101 300 96 Q304 78 322 83 Q335 69 350 82 Q371 80 375 99 Q391 108 379 124 Q367 136 348 128 Q335 140 319 130 Q301 139 283 119Z" fill="#438d45" stroke="#2f7039" stroke-width="2"/>
+                            <path d="M291 112 Q300 94 316 98 M310 124 Q327 103 344 106 M340 124 Q355 96 372 101 M322 96 Q337 82 349 87" fill="none" stroke="#80bb5d" stroke-width="3" stroke-linecap="round"/>
+                        </g>
+                        <g class="village-banana-tree">
+                            <path d="M615 199 Q619 169 615 147" fill="none" stroke="#79513a" stroke-width="7" stroke-linecap="round"/>
+                            <path d="M615 150 Q597 127 585 126 Q596 143 611 155 M616 149 Q622 119 641 105 Q636 132 620 155 M615 150 Q646 133 663 137 Q644 149 620 158 M613 151 Q588 150 576 163 Q596 164 614 159 M617 149 Q610 119 596 109 Q598 132 613 155" fill="#55a64b" stroke="#357b3c" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M589 129 Q600 142 612 153 M638 110 Q628 132 619 153 M659 139 Q638 149 620 157 M580 161 Q600 158 614 157" fill="none" stroke="#91cf62" stroke-width="2" stroke-linecap="round"/>
+                        </g>
+                        <circle cx="92" cy="204" r="3" fill="#d2a638"/>
+                        <circle cx="690" cy="198" r="3" fill="#d2a638"/>
+                    </g>
+                    <g id="palki-procession-scene">
+
+                        <g class="palki-pole">
+                            <path d="M55 133 Q90 127 119 130 Q203 128 340 119" fill="none" stroke="#75451f" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M55 131 Q90 125 119 128 Q203 126 340 117" fill="none" stroke="url(#palki-gold)" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M420 116 Q557 125 641 127 Q674 124 705 130" fill="none" stroke="#75451f" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M420 118 Q557 127 641 129 Q674 126 705 132" fill="none" stroke="url(#palki-gold)" stroke-width="1.5" stroke-linecap="round"/>
+                        </g>
+                        <g id="carrier-left" class="carrier carrier-left">
+                            <g class="carrier-leg carrier-leg-back">
+                                <path d="M132 164 Q136 179 138 192" fill="none" stroke="#704936" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="138" cy="192" r="4.5" fill="#876044" stroke="#5d3d2c" stroke-width="1.5"/>
+                                <g class="carrier-shin carrier-shin-back">
+                                    <path d="M138 192 Q140 201 142 209" fill="none" stroke="#704936" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M141 209 Q135 210 130 207 Q131 212 124 212 Q118 212 115 207 Q117 215 109 215 Q106 215 103 212 Q105 219 117 220 L143 217 Q151 216 155 211 Q148 211 141 209Z" fill="#d92e86" stroke="#7f174f" stroke-width="1.4" stroke-linejoin="round"/>
+                                    <path d="M104 216 Q114 219 122 216 Q134 219 143 216 Q150 215 154 211" fill="none" stroke="#ffc928" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M108 215 Q115 213 121 215 M126 216 Q133 213 140 215" fill="none" stroke="#ffe98b" stroke-width="1" stroke-linecap="round"/>
+                                </g>
+                            </g>
+                            <g class="carrier-leg carrier-leg-front">
+                                <path d="M123 164 Q119 179 116 192" fill="none" stroke="#9a6246" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="116" cy="192" r="5" fill="#a96f50" stroke="#70452f" stroke-width="1.5"/>
+                                <g class="carrier-shin carrier-shin-front">
+                                    <path d="M116 192 Q114 201 112 209" fill="none" stroke="#9a6246" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M112 209 Q108 211 104 207 Q105 212 98 212 Q92 212 89 207 Q91 215 83 215 Q80 215 77 212 Q79 219 91 220 L117 217 Q125 216 129 211 Q120 212 112 209Z" fill="#ed3a98" stroke="#86184f" stroke-width="1.4" stroke-linejoin="round"/>
+                                    <path d="M78 216 Q88 219 96 216 Q108 219 117 216 Q124 215 128 211" fill="none" stroke="#ffc928" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M82 215 Q89 213 95 215 M100 216 Q107 213 114 215" fill="none" stroke="#ffe98b" stroke-width="1" stroke-linecap="round"/>
+                                </g>
+                            </g>
+                            <g class="carrier-upper-body">
+                            <path d="M113 164 Q128 160 141 165 L146 179 Q140 184 139 190 Q132 194 126 190 L116 190 Q112 184 108 180Z" fill="#f3b92f" stroke="#a9571d" stroke-width="2"/>
+                            <path d="M113 171 Q126 176 143 170 L141 179 Q130 185 114 181Z" fill="url(#carrier-sherwani)" stroke="#9a2457" stroke-width="1.5"/>
+                            <path d="M113 175 Q127 180 142 175 M116 184 Q128 188 138 185" fill="none" stroke="#fff0a1" stroke-width="1.5"/>
+                            <path d="M117 185 Q128 188 138 185 M116 190 Q128 193 139 190" fill="none" stroke="#d84a91" stroke-width="2"/>
+                            <circle cx="116" cy="192" r="4.3" fill="#a96f50" stroke="#70452f" stroke-width="1.2"/>
+                            <circle cx="138" cy="192" r="4" fill="#876044" stroke="#5d3d2c" stroke-width="1.2"/>
+                            <path d="M117 193 Q120 196 124 194 M136 193 Q139 196 142 193" fill="none" stroke="#f0c295" stroke-width="1"/>
+                            <path d="M111 164 Q128 160 141 165 L146 171 Q130 177 111 171Z" fill="#ffcc32" stroke="#b46a18" stroke-width="1.5"/>
+                            <path d="M115 168 Q129 173 142 168 M114 172 Q129 177 144 172" fill="none" stroke="#fff0a1" stroke-width="1.5"/>
+                            <path d="M117 130 Q128 123 137 131 L140 175 Q130 183 115 175Z" fill="url(#carrier-sherwani)" stroke="#81254d" stroke-width="2"/>
+                            <path d="M120 134 Q129 140 135 135 L137 169 Q128 175 120 169Z" fill="#e94a98"/>
+                            <path d="M119 143 L136 145 M118 155 L137 157 M117 167 L138 169" fill="none" stroke="#eccb79" stroke-width="2"/>
+                            <path d="M120 132 L129 145 L135 133 M129 145 L128 174" fill="none" stroke="#f8e8b3" stroke-width="2"/>
+                            <path d="M122 148 l3-4 3 4-3 4z M131 158 l3-4 3 4-3 4z M120 166 l3-3 3 3-3 3z M132 137 l2-3 2 3-2 3z" fill="#ffe17a" stroke="#a53762" stroke-width="0.8"/>
+                            <path d="M116 134 Q110 140 110 147 M139 136 Q144 143 145 150" fill="none" stroke="#f4c834" stroke-width="3"/>
+                            <path d="M126 136 Q121 133 121 129 L120 126" fill="none" stroke="#9a6246" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M135 137 Q143 143 145 152 L144 162" fill="none" stroke="#806044" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M144 160 Q141 165 145 168 L148 164" fill="#806044" stroke="#60452f" stroke-width="1.5"/>
+                            <path d="M101 101 C100 88 109 80 120 79 C132 79 138 87 139 98 L137 104 L132 107 L132 110 Q138 111 138 113 Q138 115 131 116 C130 122 125 127 119 127 C113 127 108 123 106 118 L103 115 L97 113 Q95 112 98 109 L102 106Z" fill="#a96f50" stroke="#70452f" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M108 116 Q115 122 124 118 Q122 126 117 125 Q111 123 108 116Z" fill="#80503d" opacity="0.55"/>
+                            <path d="M104 101 Q105 92 112 89 Q108 98 109 105 L104 109Z" fill="#d08c68" opacity="0.62"/>
+                            <path d="M101 96 Q119 77 137 96 L137 100 Q120 94 103 102Z" fill="#38251f"/>
+                            <path d="M128 99 Q135 99 136 104 L134 116 L129 120Z" fill="#38251f"/>
+                            <path d="M98 91 Q99 82 109 78 Q123 70 136 80 Q143 85 140 94 L136 100 Q120 94 102 101Z" fill="url(#carrier-turban)" stroke="#9b571a" stroke-width="2"/>
+                            <path d="M100 88 Q111 91 137 84 M101 93 Q118 95 138 89 M108 79 Q119 84 135 94 M114 75 Q124 82 138 86" fill="none" stroke="#fff07a" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M98 94 Q104 99 111 99" fill="none" stroke="#db721b" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="121" cy="79" r="3" fill="#e33358" stroke="#ffe884" stroke-width="1"/>
+                            <path d="M102 104 Q107 101 112 104" fill="none" stroke="#56382d" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M103 106 Q107 104 111 106" fill="none" stroke="#fff0d6" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="106" cy="106" r="1.5" fill="#30221d"/>
+                            <circle cx="106.5" cy="105.5" r="0.45" fill="#fff5df"/>
+                            <path d="M102 108 Q99 110 97 112 Q99 114 102 113 M101 114 Q103 115 105 114" fill="none" stroke="#70452f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M102 115 Q106 112 111 114 Q109 117 104 117Z" fill="#55352c"/>
+                            <path d="M103 119 Q108 121 112 118" fill="none" stroke="#713f32" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M105 118 Q109 119 112 117" fill="none" stroke="#e7b994" stroke-width="1"/>
+                            <path d="M102 111 Q106 110 109 111" fill="none" stroke="#714b3a" stroke-width="1"/>
+                            <path d="M132 108 Q136 110 132 114 Q130 112 132 108Z" fill="none" stroke="#70452f" stroke-width="1.2"/>
+                            <circle cx="133" cy="113" r="1.8" fill="#d4a638"/>
+                            <path d="M103 127 L119 140 L136 127" fill="none" stroke="#d4a638" stroke-width="2"/>
+                            <path d="M113 139 L119 145 L125 139" fill="#f3d996" stroke="#aa7834" stroke-width="1"/>
+                            </g>
+                        </g>
+
+                        <g id="carrier-right" class="carrier carrier-right">
+                            <g class="carrier-leg carrier-leg-back">
+                                <path d="M648 164 Q644 179 642 193" fill="none" stroke="#704936" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="642" cy="193" r="4.5" fill="#876044" stroke="#5d3d2c" stroke-width="1.5"/>
+                                <g class="carrier-shin carrier-shin-back">
+                                    <path d="M642 193 Q640 201 638 209" fill="none" stroke="#704936" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M637 209 Q631 210 626 207 Q627 212 620 212 Q614 212 611 207 Q613 215 605 215 Q602 215 599 212 Q601 219 613 220 L639 217 Q647 216 651 211 Q644 211 637 209Z" fill="#d92e86" stroke="#7f174f" stroke-width="1.4" stroke-linejoin="round"/>
+                                    <path d="M600 216 Q610 219 618 216 Q630 219 639 216 Q646 215 650 211" fill="none" stroke="#ffc928" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M604 215 Q611 213 617 215 M622 216 Q629 213 636 215" fill="none" stroke="#ffe98b" stroke-width="1" stroke-linecap="round"/>
+                                </g>
+                            </g>
+                            <g class="carrier-leg carrier-leg-front">
+                                <path d="M639 164 Q635 179 632 193" fill="none" stroke="#9a6246" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="632" cy="193" r="5" fill="#a96f50" stroke="#70452f" stroke-width="1.5"/>
+                                <g class="carrier-shin carrier-shin-front">
+                                    <path d="M632 193 Q630 201 628 209" fill="none" stroke="#9a6246" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M628 209 Q624 211 620 207 Q621 212 614 212 Q608 212 605 207 Q607 215 599 215 Q596 215 593 212 Q595 219 607 220 L633 217 Q641 216 645 211 Q636 212 628 209Z" fill="#ed3a98" stroke="#86184f" stroke-width="1.4" stroke-linejoin="round"/>
+                                    <path d="M594 216 Q604 219 612 216 Q624 219 633 216 Q640 215 644 211" fill="none" stroke="#ffc928" stroke-width="2" stroke-linecap="round"/>
+                                    <path d="M598 215 Q605 213 611 215 M616 216 Q623 213 630 215" fill="none" stroke="#ffe98b" stroke-width="1" stroke-linecap="round"/>
+                                </g>
+                            </g>
+                            <g class="carrier-upper-body">
+                            <path d="M629 164 Q644 160 657 165 L662 179 Q656 184 655 190 Q648 194 642 190 L632 190 Q628 184 624 180Z" fill="#f3b92f" stroke="#a9571d" stroke-width="2"/>
+                            <path d="M629 171 Q642 176 659 170 L657 179 Q646 185 630 181Z" fill="url(#carrier-sherwani)" stroke="#9a2457" stroke-width="1.5"/>
+                            <path d="M629 175 Q643 180 658 175 M632 184 Q644 188 654 185" fill="none" stroke="#fff0a1" stroke-width="1.5"/>
+                            <path d="M633 185 Q644 188 654 185 M632 190 Q644 193 655 190" fill="none" stroke="#d84a91" stroke-width="2"/>
+                            <circle cx="632" cy="193" r="4.3" fill="#a96f50" stroke="#70452f" stroke-width="1.2"/>
+                            <circle cx="642" cy="193" r="4" fill="#876044" stroke="#5d3d2c" stroke-width="1.2"/>
+                            <path d="M633 193 Q636 196 640 194 M640 193 Q643 196 646 193" fill="none" stroke="#f0c295" stroke-width="1"/>
+                            <path d="M627 164 Q644 160 657 165 L662 171 Q646 177 627 171Z" fill="#ffcc32" stroke="#b46a18" stroke-width="1.5"/>
+                            <path d="M631 168 Q645 173 658 168 M630 172 Q645 177 660 172" fill="none" stroke="#fff0a1" stroke-width="1.5"/>
+                            <path d="M633 130 Q644 123 653 131 L656 175 Q646 183 631 175Z" fill="url(#carrier-sherwani)" stroke="#81254d" stroke-width="2"/>
+                            <path d="M636 134 Q645 140 651 135 L653 169 Q644 175 636 169Z" fill="#e94a98"/>
+                            <path d="M635 143 L652 145 M634 155 L653 157 M633 167 L654 169" fill="none" stroke="#eccb79" stroke-width="2"/>
+                            <path d="M636 132 L645 145 L651 133 M645 145 L644 174" fill="none" stroke="#f8e8b3" stroke-width="2"/>
+                            <path d="M638 148 l3-4 3 4-3 4z M647 158 l3-4 3 4-3 4z M636 166 l3-3 3 3-3 3z M648 137 l2-3 2 3-2 3z" fill="#ffe17a" stroke="#a53762" stroke-width="0.8"/>
+                            <path d="M632 134 Q626 140 626 147 M655 136 Q660 143 661 150" fill="none" stroke="#f4c834" stroke-width="3"/>
+                            <path d="M642 136 Q639 132 640 128 L639 124" fill="none" stroke="#9a6246" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M651 137 Q659 143 661 152 L660 162" fill="none" stroke="#806044" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M660 160 Q657 165 661 168 L664 164" fill="#806044" stroke="#60452f" stroke-width="1.5"/>
+                            <path d="M617 101 C616 88 625 80 636 79 C648 79 654 87 655 98 L653 104 L648 107 L648 110 Q654 111 654 113 Q654 115 647 116 C646 122 641 127 635 127 C629 127 624 123 622 118 L619 115 L613 113 Q611 112 614 109 L618 106Z" fill="#a96f50" stroke="#70452f" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M624 116 Q631 122 640 118 Q638 126 633 125 Q627 123 624 116Z" fill="#80503d" opacity="0.55"/>
+                            <path d="M620 101 Q621 92 628 89 Q624 98 625 105 L620 109Z" fill="#d08c68" opacity="0.62"/>
+                            <path d="M617 96 Q635 77 653 96 L653 100 Q636 94 619 102Z" fill="#38251f"/>
+                            <path d="M644 99 Q651 99 652 104 L650 116 L645 120Z" fill="#38251f"/>
+                            <path d="M614 91 Q615 82 625 78 Q639 70 652 80 Q659 85 656 94 L652 100 Q636 94 618 101Z" fill="url(#carrier-turban)" stroke="#9b571a" stroke-width="2"/>
+                            <path d="M616 88 Q627 91 653 84 M617 93 Q634 95 654 89 M624 79 Q635 84 651 94 M630 75 Q640 82 654 86" fill="none" stroke="#fff07a" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M614 94 Q620 99 627 99" fill="none" stroke="#db721b" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="637" cy="79" r="3" fill="#e33358" stroke="#ffe884" stroke-width="1"/>
+                            <path d="M618 104 Q623 101 628 104" fill="none" stroke="#56382d" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M619 106 Q623 104 627 106" fill="none" stroke="#fff0d6" stroke-width="2.5" stroke-linecap="round"/>
+                            <circle cx="622" cy="106" r="1.5" fill="#30221d"/>
+                            <circle cx="622.5" cy="105.5" r="0.45" fill="#fff5df"/>
+                            <path d="M618 108 Q615 110 613 112 Q615 114 618 113 M617 114 Q619 115 621 114" fill="none" stroke="#70452f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M618 115 Q622 112 627 114 Q625 117 620 117Z" fill="#55352c"/>
+                            <path d="M619 119 Q624 121 628 118" fill="none" stroke="#713f32" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M621 118 Q625 119 628 117" fill="none" stroke="#e7b994" stroke-width="1"/>
+                            <path d="M621 111 Q625 110 628 111" fill="none" stroke="#714b3a" stroke-width="1"/>
+                            <path d="M648 108 Q652 110 648 114 Q646 112 648 108Z" fill="none" stroke="#70452f" stroke-width="1.2"/>
+                            <circle cx="649" cy="113" r="1.8" fill="#d4a638"/>
+                            <path d="M619 127 L635 140 L652 127" fill="none" stroke="#d4a638" stroke-width="2"/>
+                            <path d="M629 139 L635 145 L641 139" fill="#f3d996" stroke="#aa7834" stroke-width="1"/>
+                            </g>
+                        </g>
+
+                        <use class="carrier carrier-left" href="#carrier-left" x="105"/>
+                        <use class="carrier carrier-right" href="#carrier-right" x="-105"/>
+
+                        <g class="palki-load">
+                        <g class="palki-scale" transform="translate(38.6 16.4) scale(0.9)">
+                        <path d="M267 91 Q276 54 310 43 Q347 32 370 30 L386 8 L402 30 Q425 32 462 43 Q496 54 505 91 L488 101 L284 101Z" fill="url(#palki-wood)" stroke="#4d2a19" stroke-width="4"/>
+                        <path d="M278 81 Q386 33 494 81" fill="none" stroke="url(#palki-gold)" stroke-width="5"/>
+                        <path d="M290 72 Q386 29 482 72 M305 55 Q350 37 376 37 M396 37 Q422 37 467 55" fill="none" stroke="#f1d181" stroke-width="2" opacity="0.9"/>
+                        <path d="M318 46 Q355 32 374 34 M398 34 Q417 32 454 46" fill="none" stroke="#6b381c" stroke-width="3"/>
+                        <path d="M386 8 Q383 23 378 29 Q386 35 394 29 Q389 22 386 8Z" fill="#d28724" stroke="#512d1d" stroke-width="2"/>
+                        <path d="M381 23 Q386 27 391 23 M383 30 Q386 36 389 30" fill="none" stroke="#ffe58c" stroke-width="1.5"/>
+                        <circle cx="386" cy="39" r="5" fill="#edb72f" stroke="#7d451e" stroke-width="1.5"/>
+                        <path d="M282 85 Q302 94 322 91 L326 101 L282 101Z M490 85 Q470 94 450 91 L446 101 L490 101Z" fill="#a61f3f" stroke="#682337" stroke-width="1.5"/>
+                        <path d="M289 91 l5-6 5 6-5 6z M307 94 l5-6 5 6-5 6z M455 94 l5-6 5 6-5 6z M473 91 l5-6 5 6-5 6z" fill="#47a84a" stroke="#f2c743" stroke-width="1.5"/>
+                        <path d="M298 99 l5-6 5 6-5 6z M325 99 l5-6 5 6-5 6z M343 99 l5-6 5 6-5 6z M361 99 l5-6 5 6-5 6z M379 99 l5-6 5 6-5 6z M397 99 l5-6 5 6-5 6z M415 99 l5-6 5 6-5 6z M433 99 l5-6 5 6-5 6z" fill="#f3c23c" stroke="#782d2b" stroke-width="1"/>
+                        <g class="palki-tassel tassel-left">
+                            <path d="M279 91 Q268 108 275 163 L305 163 L316 96Z" fill="#9d293f" stroke="#612436" stroke-width="3"/>
+                            <path d="M279 106 Q293 112 307 105 M276 151 Q290 158 304 151" fill="none" stroke="#f4d88b" stroke-width="3"/>
+                            <path d="M294 101 L294 159" stroke="#e0b766" stroke-width="3"/>
+                        </g>
+                        <g class="palki-tassel tassel-right">
+                            <path d="M493 91 Q504 108 497 163 L467 163 L456 96Z" fill="#9d293f" stroke="#612436" stroke-width="3"/>
+                            <path d="M490 106 Q476 112 462 105 M496 151 Q482 158 468 151" fill="none" stroke="#f4d88b" stroke-width="3"/>
+                            <path d="M478 101 L478 159" stroke="#e0b766" stroke-width="3"/>
+                        </g>
+                        <path d="M309 95 Q386 88 463 95 L459 164 Q386 176 313 164Z" fill="url(#palki-wood)" stroke="#4d2a19" stroke-width="4"/>
+                        <path d="M317 104 Q386 98 455 104 L452 157 Q386 168 320 157Z" fill="#f3d9b7" stroke="#d0a45f" stroke-width="2"/>
+                        <path d="M316 158 Q386 169 456 158" fill="none" stroke="#f3d18a" stroke-width="5"/>
+                        <path d="M326 109 Q386 102 446 109 L442 151 Q386 160 330 151Z" fill="#fff5df"/>
+                        <path d="M332 107 Q347 119 363 118 Q375 118 380 111 Q375 132 359 145 Q348 151 337 150 Q339 131 332 107Z" fill="#fffdf3" stroke="#c8b99a" stroke-width="2"/>
+                        <path d="M440 107 Q425 119 409 118 Q397 118 392 111 Q397 132 413 145 Q424 151 435 150 Q433 131 440 107Z" fill="#fffdf3" stroke="#c8b99a" stroke-width="2"/>
+                        <path d="M337 116 Q348 129 360 130 M340 124 Q350 137 357 139 M435 116 Q424 129 412 130 M432 124 Q422 137 415 139" fill="none" stroke="#d7cbb4" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M336 149 Q348 124 370 126 Q386 113 404 126 Q427 123 437 149 Q386 162 336 149Z" fill="url(#bride-sari)" stroke="#8f1026" stroke-width="1.5"/>
+                        <path d="M350 145 Q365 132 381 137 M359 151 Q375 139 391 141 M391 151 Q408 136 426 146" fill="none" stroke="#ffc83f" stroke-width="2"/>
+                        <path d="M367 126 Q376 119 388 122 L400 135 L391 141 L373 135Z" fill="#15934f" stroke="#07582f" stroke-width="2"/>
+                        <path d="M372 128 Q382 132 397 129 M376 135 Q385 139 393 136" fill="none" stroke="#f1c341" stroke-width="2"/>
+                        <path d="M371 127 Q365 119 361 114 L365 111 Q372 115 379 126" fill="none" stroke="#d9a176" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M361 114 Q358 111 362 109 L366 111" fill="#d9a176" stroke="#88512f" stroke-width="1.2" stroke-linejoin="round"/>
+                        <path d="M354 127 Q365 111 386 111 Q402 110 413 125 L403 137 Q386 128 367 139Z" fill="#f4c8ae"/>
+                        <path d="M378 103 Q382 96 391 99 Q398 102 397 110 L393 116 L385 117 L379 112 L374 111Z" fill="#d9a176" stroke="#88512f" stroke-width="1.2"/>
+                        <path d="M377 105 Q374 93 383 87 Q395 82 402 94 L400 106 Q395 98 389 97 Q384 98 381 108Z" fill="#38231f"/>
+                        <path d="M376 104 Q380 97 387 96 M378 109 L373 111 L378 113" fill="none" stroke="#6b3428" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M377 108 Q379 110 382 109" fill="none" stroke="#30201d" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="383" cy="101" r="1.6" fill="#a3233a"/>
+                        <path d="M381 113 Q386 117 392 115" fill="none" stroke="#713e2e" stroke-width="1.2" stroke-linecap="round"/>
+                        <path d="M373 105 Q369 114 375 122 L381 124 M397 105 Q405 111 402 121" fill="none" stroke="#a51f33" stroke-width="3"/>
+                        <circle cx="375" cy="119" r="2" fill="#f6cf54"/>
+                        <circle cx="400" cy="119" r="2" fill="#f6cf54"/>
+                        <path d="M377 122 Q387 127 399 123 M381 126 Q388 130 396 127" fill="none" stroke="#f1c341" stroke-width="1.5"/>
+                        <path d="M350 151 Q386 141 422 151" fill="none" stroke="#f4d17c" stroke-width="3"/>
+                        <path d="M321 164 L451 164" stroke="#d4a638" stroke-width="4"/>
+                        <circle cx="321" cy="164" r="4" fill="#fff0b0"/>
+                        <circle cx="451" cy="164" r="4" fill="#fff0b0"/>
+                        <path d="M318 79 Q308 89 318 96 M454 79 Q464 89 454 96" fill="none" stroke="#f3d18a" stroke-width="3"/>
+                        <path d="M302 83 l-7-8m7 8 8-7m0 7 7-8m-23 13-7-5m202 0 7-8m-7 8-8-7m0 7-7-8m23 13 7-5" fill="none" stroke="#a23c4b" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="294" cy="91" r="3" fill="#fff0b0"/>
+                        <circle cx="478" cy="91" r="3" fill="#fff0b0"/>
+                        <g class="palki-pole-mounts">
+                            <path d="M282 119 Q294 123 306 119 L307 131 Q294 135 281 131Z" fill="url(#palki-wood)" stroke="#d4a638" stroke-width="2"/>
+                            <path d="M284 124 Q294 127 305 124 M284 129 Q294 132 305 129" fill="none" stroke="#fff0b0" stroke-width="1"/>
+                            <path d="M454 119 Q466 123 479 119 L480 131 Q467 135 453 131Z" fill="url(#palki-wood)" stroke="#d4a638" stroke-width="2"/>
+                            <path d="M456 124 Q467 127 478 124 M456 129 Q467 132 478 129" fill="none" stroke="#fff0b0" stroke-width="1"/>
+                        </g>
+                        </g>
+                        </g>
+                        <g class="carrier-pole-grips" fill="#9a6246" stroke="#70452f" stroke-width="1.5" stroke-linejoin="round">
+                            <path d="M115 130 Q113 127 116 124 L119 122 Q122 121 123 125 L125 129 Q124 133 120 133 Q117 133 115 130Z"/>
+                            <path d="M635 127 Q633 124 636 121 L639 119 Q642 118 643 122 L645 126 Q644 130 640 130 Q637 130 635 127Z"/>
+                            <path d="M220 130 Q218 127 221 124 L224 122 Q227 121 228 125 L230 129 Q229 133 225 133 Q222 133 220 130Z"/>
+                            <path d="M530 127 Q528 124 531 121 L534 119 Q537 118 538 122 L540 126 Q539 130 535 130 Q532 130 530 127Z"/>
+                            <path d="M115 127 Q119 129 124 127 M115 130 Q119 132 124 130 M635 124 Q639 126 644 124 M635 127 Q639 129 644 127" fill="none" stroke="#e7b994" stroke-width="1"/>
+                            <path d="M220 127 Q224 129 229 127 M220 130 Q224 132 229 130 M530 124 Q534 126 539 124 M530 127 Q534 129 539 127" fill="none" stroke="#e7b994" stroke-width="1"/>
+                        </g>
+                    </g>
+                </defs>
+                <g class="village-background">
+                    <use href="#village-background-scene" x="0"/>
+                    <use href="#village-background-scene" x="760"/>
+                </g>
+                <g class="village-birds">
+                    <use href="#village-bird-flock" x="250" y="36"/>
+                    <use href="#village-bird-flock" x="730" y="58"/>
+                    <use href="#village-bird-flock" x="1210" y="34"/>
+                </g>
+                <g class="procession-track">
+                    <use href="#palki-procession-scene" x="0"/>
+                </g>
+            </svg>
+        </div>
+        <svg class="page-bottom-alpona" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <circle class="alpona-outline" cx="60" cy="60" r="51"/>
+            <circle class="alpona-detail" cx="60" cy="60" r="42"/>
+            <g class="alpona-petals">
+                <path d="M60 55C50 46 51 34 60 22c9 12 10 24 0 33Z"/>
+                <path d="M60 55C50 46 51 34 60 22c9 12 10 24 0 33Z" transform="rotate(45 60 60)"/>
+                <path d="M60 55C50 46 51 34 60 22c9 12 10 24 0 33Z" transform="rotate(90 60 60)"/>
+                <path d="M60 55C50 46 51 34 60 22c9 12 10 24 0 33Z" transform="rotate(135 60 60)"/>
+                <path d="M60 55C50 46 51 34 60 22c9 12 10 24 0 33Z" transform="rotate(180 60 60)"/>
+                <path d="M60 55C50 46 51 34 60 22c9 12 10 24 0 33Z" transform="rotate(225 60 60)"/>
+                <path d="M60 55C50 46 51 34 60 22c9 12 10 24 0 33Z" transform="rotate(270 60 60)"/>
+                <path d="M60 55C50 46 51 34 60 22c9 12 10 24 0 33Z" transform="rotate(315 60 60)"/>
+            </g>
+            <path class="alpona-center" d="m60 48 4 8 8 4-8 4-4 8-4-8-8-4 8-4Z"/>
+            <circle class="alpona-dot" cx="60" cy="12" r="2"/>
+            <circle class="alpona-dot" cx="60" cy="108" r="2"/>
+            <circle class="alpona-dot" cx="12" cy="60" r="2"/>
+            <circle class="alpona-dot" cx="108" cy="60" r="2"/>
+        </svg>
+        <footer class="page-bottom-decoration reveal" style="--reveal-delay: 80ms;">
+            <p class="page-bottom-thank-you">Thank <span class="thank-you-target">you</span></p>
+            <img class="page-bottom-floral-left" src="assets/images/bottom-floral-left.png" alt="">
+            <img class="page-bottom-floral-center" src="assets/images/bottom-floral-center.png" alt="">
+            <img class="page-bottom-floral-right" src="assets/images/bottom-floral-right.png" alt="">
+        </footer>
+    </div>
+    <div id="persistent-music-player">
+        <audio id="wedding-music" class="wedding-music-player" src="assets/audio/wedding-shehnai.mp3" preload="metadata" aria-label="Wedding shehnai music" hidden></audio>
+        <span id="music-player-status" class="music-player-status" role="status" aria-live="polite"></span>
+    </div>
+    <script>
+        (function () {
+            const intro = document.querySelector('.invitation-intro');
+            const hero = intro && intro.querySelector('.hero');
+            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            if (intro && hero && !reduceMotion.matches) {
+                let animationFrame = 0;
+
+                function updateHeroParallax() {
+                    animationFrame = 0;
+                    const introTop = intro.getBoundingClientRect().top + window.scrollY;
+                    const scrollRange = Math.max(intro.offsetHeight - window.innerHeight, 1);
+                    const progress = Math.min(1, Math.max(0, (window.scrollY - introTop) / scrollRange));
+
+                    hero.style.setProperty('--hero-art-scale', (1 + progress * 0.6).toFixed(3));
+                    hero.style.setProperty('--hero-art-opacity', (1 - progress).toFixed(3));
+                    hero.style.setProperty('--hero-title-scale', (1 + progress * 0.35).toFixed(3));
+                    hero.style.setProperty('--hero-title-opacity', Math.max(0, 1 - progress * 2.5).toFixed(3));
+                }
+
+                function scheduleHeroParallax() {
+                    if (!animationFrame) {
+                        animationFrame = window.requestAnimationFrame(updateHeroParallax);
+                    }
+                }
+
+                window.addEventListener('scroll', scheduleHeroParallax, { passive: true });
+                window.addEventListener('resize', scheduleHeroParallax);
+                updateHeroParallax();
+            }
+
+            const hourHand = document.querySelector('.clock-hand.hour');
+            const minuteHand = document.querySelector('.clock-hand.minute');
+            const secondHand = document.querySelector('.clock-hand.second');
+            const istTimeLabel = document.getElementById('ist-time');
+
+            if (!hourHand || !minuteHand || !secondHand || !istTimeLabel) {
+                return;
+            }
+
+            function updateClock() {
+                const timeFormatter = new Intl.DateTimeFormat('en-GB', {
+                    timeZone: 'Asia/Kolkata',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                });
+
+                const partMap = new Map();
+                for (const part of timeFormatter.formatToParts(new Date())) {
+                    if (part.type !== 'literal') {
+                        partMap.set(part.type, part.value);
+                    }
+                }
+
+                const hour = Number(partMap.get('hour') || '0') % 12;
+                const minute = Number(partMap.get('minute') || '0');
+                const second = Number(partMap.get('second') || '0');
+
+                const hourDegrees = (hour + minute / 60 + second / 3600) * 30;
+                const minuteDegrees = (minute + second / 60) * 6;
+                const secondDegrees = second * 6;
+
+                hourHand.style.transform = `translateX(-50%) rotate(${hourDegrees}deg)`;
+                minuteHand.style.transform = `translateX(-50%) rotate(${minuteDegrees}deg)`;
+                secondHand.style.transform = `translateX(-50%) rotate(${secondDegrees}deg)`;
+
+                istTimeLabel.textContent = `${partMap.get('hour')}:${partMap.get('minute')}:${partMap.get('second')} IST`;
+            }
+
+            updateClock();
+            setInterval(updateClock, 1000);
+        })();
+    </script>
+    <script src="assets/js/scroll-cue.js" defer></script>
+    <script src="assets/js/music.js" defer></script>
+    <script src="assets/js/title-writing.js" defer></script>
+    <script src="assets/js/butterfly-video-flight.js" defer></script>
+    <script src="assets/js/premium.js" defer></script>
+</body>
+</html>

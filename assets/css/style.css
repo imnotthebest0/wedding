@@ -1,0 +1,2261 @@
+html,
+body,
+.ceremony-reels {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html.wedding-home {
+    scroll-snap-type: y mandatory;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+.ceremony-reels::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: linear-gradient(
+        180deg,
+        #f7f0e2 0%,
+        #f5e9df 24%,
+        #f6edda 46%,
+        #f7e9e8 72%,
+        #f3e5e8 100%
+    );
+}
+
+body::before,
+body::after {
+    position: fixed;
+    bottom: max(0.9rem, env(safe-area-inset-bottom));
+    left: 50%;
+    z-index: 20;
+    content: "";
+    pointer-events: none;
+}
+
+body::before {
+    width: 2.65rem;
+    height: 2.65rem;
+    border: 1px solid rgba(176, 131, 49, 0.72);
+    border-radius: 50%;
+    background: rgba(255, 250, 239, 0.82);
+    box-shadow: 0 2px 12px rgba(59, 13, 27, 0.2), inset 0 0 0 3px rgba(255, 255, 255, 0.7);
+    transform: translateX(-50%);
+    animation: scroll-cue-bob 1.6s ease-in-out infinite;
+}
+
+body::after {
+    bottom: max(1.95rem, calc(env(safe-area-inset-bottom) + 1.05rem));
+    width: 0.65rem;
+    height: 0.65rem;
+    border-right: 2px solid #8b1e34;
+    border-bottom: 2px solid #8b1e34;
+    filter: drop-shadow(0 1px 1px rgba(176, 131, 49, 0.7));
+    transform: translate(-50%, 0) rotate(45deg);
+    animation: scroll-arrow-bob 1.6s ease-in-out infinite;
+}
+
+body.scroll-cue-hidden::before,
+body.scroll-cue-hidden::after {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes scroll-cue-bob {
+    0%, 100% {
+        opacity: 0.76;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes scroll-arrow-bob {
+    0%, 100% {
+        transform: translate(-50%, -0.08rem) rotate(45deg);
+    }
+    50% {
+        transform: translate(-50%, 0.16rem) rotate(45deg);
+    }
+}
+
+.flying-butterfly {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    width: clamp(5rem, 11vw, 8rem);
+    height: auto;
+    aspect-ratio: 1;
+    filter: drop-shadow(0 3px 4px rgba(40, 20, 10, 0.3));
+    offset-path: ellipse(38vw 34vh at 50vw 50vh);
+    offset-rotate: auto 90deg;
+    opacity: 1;
+    pointer-events: none;
+    animation: butterfly-circuit 58s linear infinite;
+    will-change: offset-distance;
+}
+
+@keyframes butterfly-circuit {
+    from {
+        offset-distance: 0%;
+    }
+    to {
+        offset-distance: 100%;
+    }
+}
+
+.butterfly-video-source {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.invitation-intro {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: -3rem;
+    padding-bottom: max(60svh, 24rem);
+    scroll-snap-align: start;
+}
+
+.invitation-intro::after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    height: max(60svh, 24rem);
+    content: "";
+    background: url("../images/invitation-relief-pattern.png") center 42% / cover no-repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.34;
+    pointer-events: none;
+}
+
+.invitation-intro::before {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    width: min(42vw, 20rem);
+    height: max(60svh, 24rem);
+    content: "";
+    background: url("../images/message-page-background.png") right center / auto 100% no-repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.44;
+    -webkit-mask-image: linear-gradient(to left, #000 62%, transparent 100%);
+    mask-image: linear-gradient(to left, #000 62%, transparent 100%);
+    pointer-events: none;
+}
+
+.hero {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+    margin-bottom: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    isolation: isolate;
+    overflow: hidden;
+    background: transparent;
+    pointer-events: none;
+}
+
+.hero::before {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    content: "";
+    background: url("../images/WhatsApp Image 2026-11-01 at 3.31.46 PM.jpeg") center / cover no-repeat;
+    opacity: var(--hero-art-opacity, 1);
+    filter: brightness(1.05) contrast(1.16) saturate(1.2);
+    transform: scale(var(--hero-art-scale, 1));
+    transform-origin: center;
+    will-change: transform, opacity;
+}
+
+.hero::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    content: "";
+    background: url("../images/invitation-relief-pattern.png") center / 100% 100% no-repeat;
+    mix-blend-mode: multiply;
+    opacity: calc(var(--hero-art-opacity, 1) * 0.3);
+    transform: scale(var(--hero-art-scale, 1));
+    transform-origin: center;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.shehnai-section {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-wrap: nowrap;
+    min-height: 9rem;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 0 4vw;
+}
+
+.wedding-photos-cta {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0 1rem;
+    text-align: center;
+    perspective: 500px;
+}
+
+.wedding-photos-link {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3rem;
+    box-sizing: border-box;
+    padding: 0.65rem 1.25rem;
+    border: 1px solid #8c6225;
+    border-radius: 999px;
+    background: #8b1e34;
+    color: #fffaf0;
+    font-weight: 700;
+    line-height: 1.35;
+    text-decoration: none;
+    box-shadow:
+        0 3px 10px rgba(45, 28, 20, 0.2),
+        0 0 12px rgba(255, 215, 105, 0.55),
+        inset 0 1px 0 rgba(255, 240, 190, 0.65);
+    animation: cta-gold-glow 2.4s ease-in-out infinite alternate;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+}
+
+.wedding-chat-link {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3rem;
+    box-sizing: border-box;
+    padding: 0.65rem 1.25rem;
+    border: 1px solid #168a47;
+    border-radius: 999px;
+    background: #1fa855;
+    color: #fff;
+    font-weight: 700;
+    line-height: 1.35;
+    text-decoration: none;
+    box-shadow:
+        0 3px 10px rgba(45, 28, 20, 0.2),
+        0 0 12px rgba(255, 215, 105, 0.55),
+        inset 0 1px 0 rgba(230, 255, 225, 0.6);
+    animation: cta-gold-glow 2.4s ease-in-out infinite alternate;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+}
+
+.hero-wedding-cards {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.6rem, 2.6vw, 1.25rem);
+    padding: 0 1rem;
+    opacity: var(--hero-title-opacity, 1);
+    transform: scale(var(--hero-title-scale, 1));
+    transform-origin: center;
+    pointer-events: auto;
+    will-change: transform, opacity;
+}
+
+.hero-wedding-cards .wedding-card-option {
+    width: clamp(7.5rem, 36vw, 11rem);
+    height: clamp(7.5rem, 36vw, 11rem);
+    border-radius: clamp(0.9rem, 2.6vw, 1.2rem);
+}
+
+.hero-wedding-cards .wedding-card-option-boy span,
+.hero-wedding-cards .wedding-card-option-girl span {
+    bottom: clamp(0.4rem, 1.6vw, 0.65rem);
+    padding: clamp(0.28rem, 1.2vw, 0.4rem) clamp(0.8rem, 3vw, 1.1rem);
+    font-size: clamp(1rem, 4vw, 1.15rem);
+}
+
+.hero-weds-title .couple-names {
+    font-size: clamp(2rem, 7.4vw, 5rem);
+}
+
+.weds-word {
+    display: inline-block;
+    padding: 0 0.1em;
+    font-size: 0.72em;
+    line-height: 1;
+}
+
+.wedding-card-option {
+    display: flex;
+    width: 7rem;
+    height: 7rem;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 0.4rem;
+    border: 1px solid rgba(176, 131, 49, 0.72);
+    border-radius: 0.9rem;
+    background: rgba(255, 252, 245, 0.76);
+    color: #681b31;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(59, 13, 27, 0.16);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.wedding-card-option:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 252, 245, 0.94);
+    box-shadow: 0 5px 12px rgba(59, 13, 27, 0.2);
+}
+
+.wedding-card-option:focus-visible {
+    outline: 3px solid #b08331;
+    outline-offset: 3px;
+}
+
+.wedding-card-option-boy,
+.wedding-card-option-girl {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    z-index: 1;
+}
+
+.wedding-card-ribbon {
+    z-index: 3;
+    display: block;
+    width: 4.5rem;
+    height: 3.25rem;
+    flex: 0 0 4.5rem;
+    margin: 0 -2.2rem;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 2px rgba(59, 13, 27, 0.32)) drop-shadow(0 0 3px rgba(255, 229, 155, 0.75));
+}
+
+.wedding-card-ribbon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.wedding-card-option-boy::after,
+.wedding-card-option-girl::after {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    border: 3px solid transparent;
+    border-radius: inherit;
+    content: "";
+    background: linear-gradient(135deg, #fff5c2 0%, #c39435 20%, #fff0a8 42%, #9f6b1c 62%, #f8df83 82%, #fff8d8 100%) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+.wedding-card-option-boy,
+.wedding-card-option-girl {
+    box-shadow:
+        0 0 0 1px rgba(255, 242, 183, 0.9),
+        0 2px 8px rgba(111, 75, 18, 0.24),
+        0 0 12px rgba(212, 166, 56, 0.36),
+        inset 0 0 8px rgba(255, 244, 191, 0.28);
+}
+
+.wedding-card-option.wedding-card-option-boy img,
+.wedding-card-option.wedding-card-option-girl img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.wedding-card-option-boy span,
+.wedding-card-option-girl span {
+    position: absolute;
+    bottom: 0.35rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(255, 252, 245, 0.88);
+    box-shadow: 0 1px 5px rgba(59, 13, 27, 0.18);
+}
+
+.wedding-card-option svg,
+.wedding-card-option img {
+    width: 2.65rem;
+    height: 2.65rem;
+    flex: 0 0 auto;
+    border-radius: 0.35rem;
+    object-fit: cover;
+}
+
+.wedding-card-option svg {
+    fill: none;
+    stroke: #681b31;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+    filter: drop-shadow(0 1px 1px rgba(104, 27, 49, 0.12));
+}
+
+.wedding-card-option .card-icon-frame {
+    fill: rgba(255, 255, 255, 0.35);
+    stroke: #c49a51;
+    stroke-width: 1;
+}
+
+.wedding-card-option .card-icon-fill {
+    fill: rgba(176, 131, 49, 0.2);
+}
+
+.wedding-card-option .card-icon-gold {
+    fill: none;
+    stroke: #b08331;
+    stroke-width: 1.7;
+}
+
+.wedding-card-option .card-icon-gold-fill {
+    fill: #b08331;
+    stroke: none;
+}
+
+.wedding-photos-link::before,
+.wedding-chat-link::before {
+    position: absolute;
+    top: -60%;
+    bottom: -60%;
+    left: -45%;
+    width: 30%;
+    content: "";
+    background: linear-gradient(90deg, transparent, rgba(255, 245, 205, 0.65), transparent);
+    transform: translateX(-220%) rotate(18deg);
+    animation: cta-shine-sweep 4.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.wedding-photos-link:hover,
+.wedding-chat-link:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 15px rgba(45, 28, 20, 0.28),
+        0 0 20px rgba(255, 222, 125, 0.95),
+        0 0 34px rgba(255, 240, 190, 0.55),
+        inset 0 1px 0 rgba(255, 250, 225, 0.85);
+}
+
+.wedding-chat-link:hover {
+    background: #168a47;
+}
+
+.wedding-chat-unavailable {
+    cursor: pointer;
+    opacity: 0.7;
+    filter: grayscale(0.85);
+    animation: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.wedding-chat-unavailable::before {
+    display: none;
+    animation: none;
+}
+
+.wedding-chat-unavailable:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.wedding-chat-link:focus-visible {
+    outline: 3px solid #b08331;
+    outline-offset: 3px;
+}
+
+.wedding-chat-icon {
+    flex: 0 0 auto;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.wedding-photos-icon {
+    flex: 0 0 auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
+}
+
+.wedding-photos-link:hover {
+    background: #6b1729;
+}
+
+.wedding-photos-link:focus-visible {
+    outline: 3px solid #b08331;
+    outline-offset: 3px;
+}
+
+@keyframes cta-gold-glow {
+    from {
+        box-shadow:
+            0 3px 10px rgba(45, 28, 20, 0.2),
+            0 0 9px rgba(255, 215, 105, 0.42),
+            inset 0 1px 0 rgba(255, 240, 190, 0.55);
+    }
+    to {
+        box-shadow:
+            0 4px 12px rgba(45, 28, 20, 0.25),
+            0 0 18px rgba(255, 215, 105, 0.85),
+            0 0 28px rgba(255, 239, 177, 0.4),
+            inset 0 1px 0 rgba(255, 250, 225, 0.8);
+    }
+}
+
+@keyframes cta-shine-sweep {
+    0%, 20% {
+        transform: translateX(-220%) rotate(18deg);
+    }
+    65%, 100% {
+        transform: translateX(560%) rotate(18deg);
+    }
+}
+
+.shehnai-emblem {
+    display: block;
+    width: clamp(58px, 9vw, 82px);
+    height: auto;
+    box-sizing: border-box;
+    border: 2px solid #d5a63b;
+    border-radius: 50%;
+    outline: 1px solid rgba(255, 239, 177, 0.9);
+    outline-offset: 3px;
+    box-shadow:
+        0 0 0 1px rgba(131, 83, 33, 0.75),
+        0 0 8px 3px rgba(255, 215, 105, 0.7),
+        0 0 18px 5px rgba(255, 239, 177, 0.38);
+    filter:
+        drop-shadow(0 0 4px rgba(255, 239, 177, 0.9))
+        drop-shadow(0 4px 7px rgba(75, 43, 22, 0.35));
+    animation: emblem-gold-glow 2.8s ease-in-out infinite alternate;
+    transition: filter 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.shehnai-link {
+    position: absolute;
+    top: 50%;
+    right: clamp(1rem, 4vw, 3rem);
+    z-index: 5;
+    display: block;
+    width: clamp(58px, 9vw, 82px);
+    line-height: 0;
+    transform: translateY(-50%);
+}
+
+.shehnai-link:hover .shehnai-emblem {
+    animation-play-state: paused;
+    box-shadow:
+        0 0 0 1px rgba(131, 83, 33, 0.9),
+        0 0 11px 4px rgba(255, 215, 105, 0.9),
+        0 0 24px 7px rgba(255, 239, 177, 0.55);
+    filter:
+        drop-shadow(0 0 7px rgba(255, 239, 177, 1))
+        drop-shadow(0 5px 9px rgba(75, 43, 22, 0.42));
+    transform: translateY(-2px);
+}
+
+@keyframes emblem-gold-glow {
+    from {
+        box-shadow:
+            0 0 0 1px rgba(131, 83, 33, 0.75),
+            0 0 6px 2px rgba(255, 215, 105, 0.55),
+            0 0 14px 4px rgba(255, 239, 177, 0.28);
+    }
+    to {
+        box-shadow:
+            0 0 0 1px rgba(131, 83, 33, 0.85),
+            0 0 10px 4px rgba(255, 215, 105, 0.9),
+            0 0 22px 6px rgba(255, 239, 177, 0.48);
+    }
+}
+
+.wedding-music-player {
+    display: none;
+}
+
+.music-start-button {
+    position: fixed;
+    z-index: 20;
+    right: 1rem;
+    bottom: 1rem;
+    padding: 0.75rem 1rem;
+    border: 0;
+    border-radius: 999px;
+    background: #681b31;
+    color: #fffaf0;
+    font: inherit;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.music-notes {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.music-notes > span {
+    position: absolute;
+    top: 50%;
+    right: calc(4vw + clamp(96px, 16vw, 158px));
+    color: var(--note-color);
+    font-family: Georgia, serif;
+    font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+    line-height: 1;
+    opacity: 0;
+    text-shadow: 0 1px 3px rgba(75, 45, 30, 0.2);
+    animation: notes-float-left 30s ease-out both;
+}
+
+.ceremony-reels {
+    flex: 0 0 auto;
+    height: auto;
+    overflow: visible;
+    scroll-snap-align: none;
+}
+
+.ceremony-reels > .event-sections {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(100vh, auto);
+    grid-auto-rows: minmax(100svh, auto);
+}
+
+.ceremony-reels .event-section,
+.ceremony-reels .bou-bhat {
+    min-height: 100vh;
+    min-height: 100svh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.event-sections {
+    position: relative;
+    z-index: 0;
+    display: grid;
+    min-height: 60vh;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.event-sections::after {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    height: 3rem;
+    content: "";
+    background: url("../images/invitation-relief-pattern.png") center 42% / cover no-repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.event-section {
+    position: relative;
+    display: flex;
+    min-height: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.future-content-space {
+    position: relative;
+    flex: 0 0 auto;
+    min-height: 200vh;
+    margin-bottom: -3rem;
+    scroll-snap-align: start;
+}
+
+.future-content-space::before {
+    position: absolute;
+    top: -3rem;
+    right: 0;
+    left: 0;
+    height: calc(43% + clamp(160px, 30vw, 430px) + 4rem);
+    content: "";
+    background: url("../images/invitation-relief-pattern.png") center / min(100%, 48rem) 100% no-repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.wedding-procession {
+    position: absolute;
+    z-index: 1;
+    top: 43%;
+    left: 0;
+    width: 100%;
+    height: clamp(160px, 30vw, 430px);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.procession-art {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    width: 200%;
+    height: auto;
+    max-width: none;
+    overflow: visible;
+    transform: translateY(-50%);
+}
+
+.procession-track {
+    transform-box: view-box;
+    animation: palki-procession-travel 28s linear infinite;
+}
+
+.village-birds {
+    transform-box: fill-box;
+    animation: village-birds-fly 7s ease-in-out infinite alternate;
+}
+
+.palki-pole,
+.carrier-upper-body,
+.palki-load {
+    transform-box: fill-box;
+    animation: procession-load-bob 1.2s ease-in-out infinite;
+}
+
+.carrier-upper-body {
+    transform-origin: center bottom;
+}
+
+.palki-load {
+    transform-origin: center top;
+}
+
+.palki-tassel {
+    transform-box: fill-box;
+    transform-origin: center top;
+    animation: palki-tassel-sway 1.2s ease-in-out infinite;
+}
+
+.tassel-right {
+    animation-delay: -0.18s;
+}
+
+.carrier-shin {
+    transform-box: fill-box;
+    transform-origin: 50% 5px;
+    animation: carrier-shin-walk 1.2s linear infinite;
+}
+
+.carrier-shin-back {
+    animation-delay: -0.6s;
+}
+
+.carrier-left .carrier-shin-front {
+    animation-delay: -0.6s;
+}
+
+.carrier-left .carrier-shin-back {
+    animation-delay: 0s;
+}
+
+@keyframes palki-procession-travel {
+    0% {
+        transform: translateX(55%);
+    }
+    94% {
+        transform: translateX(-55%);
+    }
+    94.01%, 100% {
+        transform: translateX(55%);
+    }
+}
+
+@keyframes village-birds-fly {
+    from {
+        transform: translate(-45px, 3px);
+    }
+    to {
+        transform: translate(45px, -5px);
+    }
+}
+
+@keyframes procession-load-bob {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-1px);
+    }
+    50% {
+        transform: translateY(-2.5px);
+    }
+    80% {
+        transform: translateY(-1px);
+    }
+}
+
+@keyframes palki-tassel-sway {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(-2.5deg);
+    }
+    75% {
+        transform: rotate(1.5deg);
+    }
+}
+
+@keyframes carrier-shin-walk {
+    0%, 60%, 100% {
+        transform: none;
+    }
+    70% {
+        transform: translate(-1px, -1px) rotate(-5deg);
+    }
+    82% {
+        transform: translate(-4px, -5px) rotate(17deg);
+    }
+    92% {
+        transform: translate(-2px, -2px) rotate(8deg);
+    }
+}
+
+.page-bottom-decoration {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 46rem;
+    height: min(100vh, 46rem);
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.page-bottom-decoration::before {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    content: "";
+    background: url("../images/invitation-relief-pattern.png") center / cover no-repeat;
+    mix-blend-mode: multiply;
+    opacity: 0.32;
+}
+
+.page-bottom-decoration::after {
+    position: absolute;
+    z-index: 3;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    content: "";
+    background: #000;
+}
+
+.page-bottom-decoration img {
+    position: absolute;
+    z-index: 1;
+    bottom: 2px;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    object-position: bottom;
+    mix-blend-mode: multiply;
+}
+
+.page-bottom-alpona {
+    position: absolute;
+    top: calc(43% + clamp(160px, 30vw, 430px) + 1rem);
+    left: 50%;
+    width: clamp(5rem, 12vw, 8rem);
+    height: auto;
+    overflow: visible;
+    filter: drop-shadow(0 1px 3px rgba(90, 54, 18, 0.45));
+    transform: translateX(-50%);
+}
+
+.page-bottom-alpona .alpona-outline,
+.page-bottom-alpona .alpona-detail,
+.page-bottom-alpona .alpona-petals path,
+.page-bottom-alpona .alpona-center {
+    fill: rgba(255, 250, 232, 0.42);
+    stroke: #fff8e6;
+    stroke-width: 1.5;
+}
+
+.page-bottom-alpona .alpona-detail,
+.page-bottom-alpona .alpona-center {
+    stroke: #d4a638;
+}
+
+.page-bottom-alpona .alpona-dot {
+    fill: #d4a638;
+    stroke: #fff8e6;
+    stroke-width: 1;
+}
+
+.page-bottom-floral-left,
+.page-bottom-floral-right {
+    width: clamp(5rem, 20vw, 20rem);
+}
+
+.page-bottom-floral-left {
+    left: 0;
+    object-position: bottom left;
+}
+
+.page-bottom-floral-center {
+    left: 50%;
+    width: min(58vw, 46rem);
+    transform: translateX(-50%);
+}
+
+.page-bottom-thank-you {
+    position: absolute;
+    z-index: 2;
+    bottom: clamp(7rem, 18vw, 14rem);
+    left: 50%;
+    width: 100%;
+    margin: 0;
+    scroll-snap-align: end;
+    background: linear-gradient(110deg, #c18a1c 5%, #fff8cc 25%, #f1ca58 45%, #fffbe4 55%, #d9a333 75%, #fff8cc 95%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 1;
+    text-align: center;
+    text-shadow: 0 0 8px rgba(255, 215, 105, 0.9), 0 0 20px rgba(255, 239, 177, 0.9);
+    -webkit-text-stroke: 1px #000;
+    animation: golden-shine 4s linear infinite;
+    transform: translateX(-50%);
+}
+
+.page-bottom-floral-right {
+    right: 0;
+    object-position: bottom right;
+}
+
+.section-page-link {
+    position: absolute;
+    z-index: 3;
+    inset: 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.section-page-link:focus-visible {
+    outline: 4px solid #8b1e34;
+    outline-offset: -0.75rem;
+}
+
+.event-section::before {
+    position: absolute;
+    inset: 1.25rem;
+    content: "";
+    border: 1px solid rgba(176, 131, 49, 0.45);
+    pointer-events: none;
+}
+
+.adan-pradan {
+    border-right: 1px solid #e8dfcb;
+    background: linear-gradient(145deg, #fffdf8, #faf3e6);
+}
+
+.sindoor-daan-section {
+    background-image:
+        linear-gradient(rgba(255, 253, 248, 0.1), rgba(255, 253, 248, 0.1)),
+        url("../images/WhatsApp Image 2026-11-01 at 9.42.06 PM.jpeg");
+    background-position: center bottom;
+    background-size: cover;
+}
+
+.subha-dristi-section {
+    background-image:
+        linear-gradient(rgba(255, 253, 248, 0.08), rgba(255, 253, 248, 0.08)),
+        url("../images/WhatsApp Image 2026-11-01 at 3.34.30 PM.jpeg");
+    background-position: center bottom;
+    background-size: cover;
+}
+
+.gaye-holud-section {
+    background-image:
+        linear-gradient(rgba(255, 250, 232, 0.24), rgba(255, 250, 232, 0.24)),
+        url("../images/WhatsApp Image 2026-11-01 at 3.31.47 PM.jpeg");
+    background-position: center bottom;
+    background-size: cover;
+}
+
+.aiburo-bhaat-section {
+    background-image:
+        linear-gradient(rgba(255, 253, 248, 0.12), rgba(255, 253, 248, 0.12)),
+        url("../images/WhatsApp Image 2026-11-01 at 3.31.57 PM.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+.other-events {
+    background: linear-gradient(215deg, #fffdfb, #f8edf0);
+}
+
+.bor-boron-section {
+    background-image:
+        linear-gradient(rgba(255, 253, 248, 0.08), rgba(255, 253, 248, 0.08)),
+        url("../images/WhatsApp Image 2026-11-01 at 8.13.16 PM.jpeg");
+    background-position: center;
+    background-size: 100% 100%, contain;
+    background-repeat: no-repeat;
+    background-color: #fffaf0;
+}
+
+.shankha-pola-section {
+    background-image:
+        linear-gradient(rgba(255, 253, 248, 0.12), rgba(255, 253, 248, 0.12)),
+        url("../images/WhatsApp Image 2026-11-01 at 3.32.00 PM.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+.saptapadi-section {
+    background-image:
+        linear-gradient(rgba(255, 253, 248, 0.12), rgba(255, 253, 248, 0.12)),
+        url("../images/WhatsApp Image 2026-11-01 at 3.31.58 PM.jpeg");
+    background-position: center top;
+    background-size: cover;
+}
+
+.biday-section {
+    background-image:
+        linear-gradient(rgba(255, 250, 250, 0.18), rgba(255, 250, 250, 0.18)),
+        url("../images/WhatsApp Image 2026-11-01 at 3.31.59 PM.jpeg");
+    background-position: center bottom;
+    background-size: cover;
+}
+
+.biday-section .event-title {
+    color: #65172b;
+    text-shadow: 0 1px 5px rgba(255, 255, 255, 0.9);
+}
+
+.bou-bhat {
+    min-height: 60vh;
+    background-image:
+        linear-gradient(rgba(255, 253, 248, 0.08), rgba(255, 253, 248, 0.08)),
+        url("../images/WhatsApp Image 2026-11-01 at 10.01.29 PM.jpeg");
+    background-position: center;
+    background-size: 100% 100%, auto 68%;
+    background-repeat: no-repeat;
+    background-color: #fff8f5;
+}
+
+.event-section,
+.bou-bhat {
+    box-sizing: border-box;
+    border: 2px solid #b08331;
+    box-shadow: inset 0 0 0 1px rgba(255, 244, 198, 0.8), 0 0 8px rgba(176, 131, 49, 0.24);
+}
+
+.bou-bhat::before {
+    inset: 3% auto;
+    left: 50%;
+    width: min(92vw, 43vh);
+    transform: translateX(-50%);
+}
+
+.bou-bhat .event-list {
+    position: absolute;
+    top: clamp(1.5rem, 4vh, 2.5rem);
+    right: max(1rem, calc(50% - min(46vw, 21.5vh)));
+    align-items: flex-end;
+}
+
+.bou-bhat-poem {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 3rem clamp(1.5rem, 4vw, 3.5rem);
+    pointer-events: none;
+}
+
+.bou-bhat-poem-side {
+    width: min(28vw, 22rem);
+    margin: 0;
+    padding: 0;
+    color: #681b31;
+    font-family: "Noto Serif Bengali", Georgia, serif;
+    font-size: clamp(1.15rem, 2.4vw, 1.7rem);
+    font-weight: 600;
+    line-height: 1.7;
+    text-align: center;
+    text-shadow:
+        1px 1px 1px rgba(255, 255, 255, 0.95),
+        -1px -1px 1px rgba(132, 83, 91, 0.8),
+        0 2px 4px rgba(88, 37, 49, 0.8);
+}
+
+.bou-bhat-poem-right {
+    margin-left: auto;
+}
+
+.event-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1.5rem, 5vh, 3rem);
+}
+
+.first-ceremony-section .event-list {
+    position: absolute;
+    top: clamp(1.5rem, 4vh, 2.5rem);
+    right: clamp(1.5rem, 4vw, 3rem);
+    align-items: flex-end;
+}
+
+.bor-boron-section .event-list {
+    position: absolute;
+    top: clamp(1.5rem, 4vh, 2.5rem);
+    left: 50%;
+    align-items: center;
+    width: max-content;
+    max-width: calc(100% - 3rem);
+    transform: translateX(-50%);
+}
+
+.bor-boron-section .event-title-card {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(0.25rem, 1.2vw, 0.65rem);
+    padding: 0.55rem 0.8rem;
+}
+
+.bor-boron-section .event-title {
+    padding: 0.1rem 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transform: none;
+}
+
+.bor-boron-section .event-title::after {
+    display: none;
+}
+
+.bor-boron-section .event-title-connector {
+    color: #50351c;
+    font-family: "Noto Serif Bengali", serif;
+    font-size: clamp(0.9rem, 1.8vw, 1.25rem);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.subha-dristi-section .event-list {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.saptapadi-section .event-list {
+    position: absolute;
+    top: auto;
+    bottom: clamp(1.5rem, 4vh, 2.5rem);
+    left: 50%;
+    width: max-content;
+    max-width: calc(100% - 1rem);
+    transform: translateX(-50%);
+}
+
+.saptapadi-section .event-title-card {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(0.15rem, 0.8vw, 0.5rem);
+    max-width: 100%;
+    padding: 0.45rem 0.6rem;
+}
+
+.saptapadi-section .event-title {
+    flex: 0 1 auto;
+    padding: 0.1rem 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: clamp(1.05rem, 2.4vw, 1.8rem);
+    white-space: nowrap;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transform: none;
+}
+
+.saptapadi-section .event-title::after {
+    display: none;
+}
+
+.saptapadi-section .event-title-connector {
+    color: #4a2d53;
+    font-family: "Noto Serif Bengali", serif;
+    font-size: clamp(1.05rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+}
+
+.sindoor-daan-section .event-list {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: clamp(2.5rem, 6vh, 3.5rem);
+    left: clamp(1.5rem, 4vw, 3rem);
+    align-items: flex-start;
+}
+
+.sindoor-daan-section .event-title {
+    font-size: clamp(1.05rem, 2.4vw, 1.8rem);
+}
+
+.biday-section .event-list {
+    position: absolute;
+    top: clamp(1.5rem, 4vh, 2.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.biday-section .event-title-card {
+    gap: 0.1rem;
+    padding: 0.55rem 0.9rem;
+}
+
+.biday-section .event-title {
+    padding: 0.1rem 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transform: none;
+}
+
+.biday-section .event-title::after {
+    display: none;
+}
+
+.event-title-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 0.6rem;
+    background: rgba(255, 250, 232, 0.58);
+    box-shadow: 0 0 15px rgba(75, 43, 27, 0.55), 0 2px 4px rgba(75, 43, 27, 0.55), 0 8px 18px rgba(75, 43, 27, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: brightness(1.12) saturate(1.1) blur(2px);
+    backdrop-filter: brightness(1.12) saturate(1.1) blur(2px);
+}
+
+.event-title {
+    position: relative;
+    margin: 0;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 0.55rem;
+    background: rgba(255, 250, 232, 0.58);
+    color: #681b31;
+    font-family: "Noto Serif Bengali", serif;
+    font-size: clamp(1.05rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95), 0 2px 4px rgba(55, 35, 25, 0.2);
+    box-shadow:
+        0 2px 4px rgba(75, 43, 27, 0.55),
+        0 8px 18px rgba(75, 43, 27, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: brightness(1.12) saturate(1.1) blur(2px);
+    backdrop-filter: brightness(1.12) saturate(1.1) blur(2px);
+    transform: translateY(-2px);
+}
+
+.first-ceremony-section .event-title {
+    padding: 0.15rem 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transform: none;
+}
+
+.first-ceremony-section .event-title::after {
+    display: none;
+}
+
+.shankha-pola-section .event-title-card {
+    gap: 0.1rem;
+    padding: 0.55rem 0.9rem;
+}
+
+.shankha-pola-section .event-title {
+    padding: 0.1rem 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transform: none;
+}
+
+.shankha-pola-section .event-title::after {
+    display: none;
+}
+
+.gaye-holud-section .event-title-card {
+    gap: 0.1rem;
+    padding: 0.55rem 0.9rem;
+}
+
+.gaye-holud-section .event-title {
+    padding: 0.1rem 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    color: #3b2600;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
+    transform: none;
+}
+
+.gaye-holud-section .event-title::after {
+    display: none;
+}
+
+.subha-dristi-section .event-title-card {
+    gap: 0.1rem;
+    padding: 0.55rem 0.9rem;
+}
+
+.subha-dristi-section .event-title {
+    padding: 0.1rem 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transform: none;
+}
+
+.subha-dristi-section .event-title::after {
+    display: none;
+}
+
+.aiburo-bhaat-section .event-title,
+.sindoor-daan-section .event-title,
+.biday-section .event-title,
+.bou-bhat .event-title {
+    color: #681b31;
+}
+
+.shankha-pola-section .event-title,
+.bor-boron-section .event-title {
+    color: #50351c;
+}
+
+.subha-dristi-section .event-title,
+.saptapadi-section .event-title {
+    color: #4a2d53;
+}
+
+.event-title::after {
+    display: block;
+    width: min(9rem, 65%);
+    height: 2px;
+    margin: 1rem auto 0;
+    content: "";
+    background: linear-gradient(90deg, transparent, #b08331 20%, #e7ce9a 50%, #b08331 80%, transparent);
+}
+
+.wedding-home .event-title-writing-text {
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.wedding-home .event-title.is-writing .event-title-writing-text {
+    clip-path: inset(0 100% 0 0);
+    animation: title-writing-reveal var(--title-writing-duration) steps(40, end) var(--title-writing-delay) both;
+}
+
+.wedding-home .event-title.is-writing .event-title-writing-text::before,
+.wedding-home .event-title.is-writing .event-title-writing-text::after {
+    position: absolute;
+    top: 50%;
+    content: "";
+    animation: title-writing-pen var(--title-writing-duration) linear var(--title-writing-delay) both;
+}
+
+.wedding-home .event-title.is-writing .event-title-writing-text::before {
+    left: -0.12rem;
+    width: 0.58rem;
+    height: 0.34rem;
+    background: linear-gradient(90deg, #f8e6a8, #b08331 48%, #fff1bd 52%, #9b6b22);
+    clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    filter: drop-shadow(0 1px 1px rgba(55, 35, 25, 0.45));
+    transform: translateY(-50%) rotate(-48deg);
+}
+
+.wedding-home .event-title.is-writing .event-title-writing-text::after {
+    left: 0.18rem;
+    width: 1.8rem;
+    height: 0.34rem;
+    border: 1px solid #3c2618;
+    border-radius: 0 0.2rem 0.2rem 0;
+    background:
+        linear-gradient(90deg, transparent 0 10%, #d8b558 10% 14%, transparent 14% 73%, #e8ca76 73% 78%, transparent 78%),
+        linear-gradient(90deg, #173b35, #285849 52%, #102923);
+    box-shadow: 0 1px 3px rgba(55, 35, 25, 0.45);
+    transform: translateY(-50%) rotate(-48deg);
+}
+
+@keyframes title-writing-reveal {
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+@keyframes title-writing-pen {
+    to {
+        left: 100%;
+    }
+}
+
+.falling-leaves {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.leaf {
+    position: absolute;
+    top: var(--start-y);
+    left: var(--x);
+    width: clamp(42px, 6vw, 62px);
+    height: clamp(34px, 4.8vw, 50px);
+    border: 1px solid rgba(75, 96, 68, 0.3);
+    border-radius: 52% 48% 55% 45%;
+    opacity: 0;
+    animation: leaf-fall var(--duration) linear var(--delay) infinite;
+    box-shadow:
+        inset 2px 2px 5px rgba(255, 255, 255, 0.68),
+        inset -3px -2px 5px rgba(69, 89, 61, 0.18),
+        0 2px 5px rgba(50, 60, 45, 0.16);
+}
+
+.leaf::after {
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    width: 84%;
+    height: 2px;
+    content: "";
+    background: linear-gradient(90deg, transparent, rgba(91, 111, 79, 0.56) 18%, rgba(245, 246, 224, 0.75) 50%, rgba(91, 111, 79, 0.46) 82%, transparent);
+    transform: rotate(-10deg);
+}
+
+.leaf.yellow {
+    background: radial-gradient(ellipse at 28% 22%, #f5efcf 0%, #d8d6ad 48%, #aeb995 100%);
+}
+
+.leaf.green {
+    background: radial-gradient(ellipse at 28% 22%, #edf0df 0%, #c1ceb0 48%, #869b83 100%);
+}
+
+.flower {
+    position: absolute;
+    top: var(--start-y);
+    left: var(--x);
+    width: clamp(48px, 7vw, 72px);
+    height: clamp(76px, 10vw, 110px);
+    opacity: 0;
+    animation: leaf-fall var(--duration) linear var(--delay) infinite;
+    filter: drop-shadow(0 1px 2px rgba(70, 45, 50, 0.28));
+}
+
+.flower::before,
+.flower::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+}
+
+.flower::before {
+    background:
+        radial-gradient(ellipse at 25% 51%, #9da98b 0 5%, transparent 7%),
+        radial-gradient(ellipse at 75% 67%, #9da98b 0 5%, transparent 7%),
+        linear-gradient(103deg, transparent 47%, rgba(102, 124, 92, 0.8) 49%, rgba(145, 159, 119, 0.86) 51%, transparent 53%);
+}
+
+.flower::after {
+    background:
+        radial-gradient(ellipse at 27% 8%, var(--flower-light) 0 8%, transparent 10%),
+        radial-gradient(ellipse at 48% 12%, var(--flower-deep) 0 9%, transparent 11%),
+        radial-gradient(ellipse at 69% 18%, var(--flower-light) 0 8%, transparent 10%),
+        radial-gradient(ellipse at 38% 25%, var(--flower-mid) 0 9%, transparent 11%),
+        radial-gradient(ellipse at 63% 31%, var(--flower-deep) 0 9%, transparent 11%),
+        radial-gradient(ellipse at 27% 39%, var(--flower-mid) 0 8%, transparent 10%),
+        radial-gradient(ellipse at 52% 45%, var(--flower-light) 0 9%, transparent 11%),
+        radial-gradient(ellipse at 76% 51%, var(--flower-mid) 0 8%, transparent 10%),
+        radial-gradient(ellipse at 39% 60%, var(--flower-deep) 0 9%, transparent 11%),
+        radial-gradient(ellipse at 63% 68%, var(--flower-light) 0 8%, transparent 10%);
+}
+
+.flower.pink {
+    --flower-light: #ead4dc;
+    --flower-mid: #d3adbf;
+    --flower-deep: #b98da9;
+}
+
+.flower.lavender {
+    --flower-light: #e6d9ed;
+    --flower-mid: #ccb9df;
+    --flower-deep: #aa91c1;
+}
+
+@keyframes leaf-fall {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    10% {
+        opacity: 0.9;
+    }
+    90% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        transform: translate3d(var(--drift), 110vh, 0) rotate(720deg);
+    }
+}
+
+@media (max-width: 767px) {
+    .event-section::before {
+        inset: 0.65rem;
+    }
+
+    .event-sections::after {
+        height: 1.25rem;
+        background-position: center 42%;
+    }
+
+    .event-title {
+        padding: 0.3rem 0.55rem;
+    }
+}
+
+.wedding-title {
+    position: relative;
+    z-index: 2;
+    top: auto;
+    margin: 0;
+    padding: 1rem 0.75rem;
+    color: #f6d77a;
+    text-align: center;
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15em;
+    background: linear-gradient(110deg, #9b6811 5%, #f8e7a1 25%, #d4a638 45%, #fff2bd 55%, #c18a1c 75%, #f8e7a1 95%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: golden-shine 4s linear infinite;
+    -webkit-text-stroke: 1.2px #000;
+    filter:
+        drop-shadow(0 0 7px rgba(255, 250, 214, 1))
+        drop-shadow(0 0 16px rgba(255, 220, 125, 0.95))
+        drop-shadow(2px 3px 6px rgba(58, 35, 9, 0.72));
+    transform: scale(var(--hero-title-scale, 1));
+    transform-origin: center;
+    opacity: var(--hero-title-opacity, 1);
+    will-change: transform, opacity;
+}
+
+.wedding-clock {
+    position: absolute;
+    left: 50%;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 0 auto;
+    margin: 0;
+    transform: translateX(-50%);
+}
+
+.wedding-diya {
+    position: absolute;
+    top: 50%;
+    left: clamp(1rem, 4vw, 3rem);
+    z-index: 5;
+    width: clamp(58px, 9vw, 82px);
+    height: auto;
+    box-sizing: border-box;
+    overflow: visible;
+    padding: 5px;
+    border: 2px solid #d5a63b;
+    border-radius: 50%;
+    outline: 1px solid rgba(255, 239, 177, 0.9);
+    outline-offset: 3px;
+    background: radial-gradient(circle at 34% 27%, #fffef2 0%, #fff0c8 48%, #e1bc7d 100%);
+    box-shadow:
+        0 0 0 1px rgba(131, 83, 33, 0.75),
+        0 0 8px 3px rgba(255, 215, 105, 0.7),
+        0 0 18px 5px rgba(255, 239, 177, 0.38);
+    filter:
+        drop-shadow(0 0 4px rgba(255, 239, 177, 0.9))
+        drop-shadow(0 4px 7px rgba(75, 43, 22, 0.35));
+    animation: emblem-gold-glow 2.8s ease-in-out infinite alternate;
+    transform: translateY(-50%);
+}
+
+.diya-halo {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: diya-glow 1.15s ease-in-out infinite alternate;
+}
+
+.diya-flame {
+    transform-box: fill-box;
+    transform-origin: center bottom;
+    animation: diya-flicker 0.9s ease-in-out infinite;
+    filter: drop-shadow(0 0 2px rgba(255, 164, 37, 0.75));
+}
+
+@keyframes diya-glow {
+    from {
+        opacity: 0.55;
+        transform: scale(0.88);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+}
+
+@keyframes diya-flicker {
+    0%, 100% {
+        opacity: 0.92;
+        transform: translateY(0) scale(0.94, 1) rotate(-2deg);
+    }
+    35% {
+        opacity: 1;
+        transform: translateY(-1px) scale(1.04, 1.08) rotate(2deg);
+    }
+    70% {
+        opacity: 0.86;
+        transform: translateY(0.5px) scale(0.97, 0.96) rotate(-1deg);
+    }
+}
+
+.clock-face {
+    position: relative;
+    isolation: isolate;
+    width: clamp(100px, 16vw, 155px);
+    height: clamp(100px, 16vw, 155px);
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 3px solid transparent;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at 34% 27%, rgba(255, 254, 247, 0.9) 0%, rgba(255, 247, 230, 0.9) 34%, rgba(239, 221, 193, 0.9) 72%, rgba(210, 174, 123, 0.9) 100%) padding-box,
+        conic-gradient(from 25deg, #835321, #ffedaa 12%, #b67a29 25%, #fff2bd 39%, #8e5921 53%, #e8c66c 70%, #8a551d 86%, #ffefb5) border-box;
+    box-shadow:
+        inset 0 2px 6px rgba(255, 255, 255, 0.95),
+        inset 0 -7px 12px rgba(108, 70, 32, 0.16),
+        0 8px 18px rgba(61, 39, 19, 0.28),
+        0 0 0 5px rgba(226, 190, 112, 0.35),
+        0 0 22px rgba(255, 231, 160, 0.45);
+}
+
+.clock-face::after {
+    animation: clock-golden-shine 4s linear infinite;
+}
+
+.clock-face::before {
+    box-shadow: 0 0 7px rgba(255, 222, 129, 0.85);
+}
+
+@keyframes clock-golden-shine {
+    0% {
+        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.38), 0 0 3px rgba(255, 219, 111, 0.25);
+        border-color: rgba(149, 105, 52, 0.32);
+    }
+    50% {
+        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.62), 0 0 12px rgba(255, 220, 112, 0.9);
+        border-color: rgba(255, 224, 139, 0.95);
+    }
+    100% {
+        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.38), 0 0 3px rgba(255, 219, 111, 0.25);
+        border-color: rgba(149, 105, 52, 0.32);
+    }
+}
+
+.clock-face::before {
+    position: absolute;
+    z-index: 0;
+    inset: 11px;
+    content: "";
+    border-radius: 50%;
+    background: repeating-conic-gradient(from 0deg, #8b652e 0deg 1.5deg, transparent 1.5deg 30deg);
+    -webkit-mask: radial-gradient(farthest-side, transparent 69%, #000 70%);
+    mask: radial-gradient(farthest-side, transparent 69%, #000 70%);
+}
+
+.clock-face::after {
+    position: absolute;
+    z-index: 0;
+    inset: 15px;
+    content: "";
+    border: 1px solid rgba(149, 105, 52, 0.32);
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.38);
+    pointer-events: none;
+}
+
+.clock-face > span {
+    position: absolute;
+    z-index: 1;
+    color: #684321;
+    font-family: "Cinzel", serif;
+    font-size: clamp(0.55rem, 1.25vw, 0.72rem);
+    font-weight: 700;
+    line-height: 1;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
+    pointer-events: none;
+    user-select: none;
+}
+
+.clock-face .clock-number-12 {
+    top: 13%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.clock-face .clock-number-3 {
+    top: 50%;
+    right: 13%;
+    transform: translateY(-50%);
+}
+
+.clock-face .clock-number-6 {
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.clock-face .clock-number-9 {
+    top: 50%;
+    left: 13%;
+    transform: translateY(-50%);
+}
+
+.clock-face .clock-hand {
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    border-radius: 999px;
+    transform-origin: center bottom;
+    transform: translateX(-50%) rotate(0deg);
+    box-shadow: 0 1px 3px rgba(54, 33, 17, 0.2);
+    pointer-events: none;
+    will-change: transform;
+}
+
+.clock-face .clock-hand.hour {
+    z-index: 2;
+    width: 5px;
+    height: 26%;
+    background: linear-gradient(90deg, #442719, #a06a34 48%, #3a2116);
+}
+
+.clock-face .clock-hand.minute {
+    z-index: 2;
+    width: 4px;
+    height: 35%;
+    background: linear-gradient(90deg, #61401f, #c18a3d 48%, #59361b);
+}
+
+.clock-face .clock-hand.second {
+    z-index: 3;
+    width: 2px;
+    height: 42%;
+    background: linear-gradient(90deg, #741d34, #d05a61 50%, #741d34);
+    filter: drop-shadow(0 0 2px rgba(255, 238, 195, 0.7));
+}
+
+.clock-face .clock-center {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    left: 50%;
+    width: 13px;
+    height: 13px;
+    box-sizing: content-box;
+    border: 2px solid #fff3cc;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff8df 0%, #e1bc60 43%, #8a571d 100%);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 2px rgba(139, 92, 29, 0.35), 0 0 9px rgba(224, 184, 83, 0.7);
+    pointer-events: none;
+}
+
+.clock-label {
+    padding: 0.25rem 0.65rem;
+    border: 1px solid rgba(160, 115, 54, 0.45);
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(255, 250, 233, 0.9), rgba(229, 204, 157, 0.88));
+    box-shadow: 0 3px 8px rgba(71, 48, 23, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    color: #744519;
+    font-family: "Cinzel", serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+}
+
+.couple-names {
+    font-size: clamp(1.8rem, 8vw, 6rem);
+    white-space: nowrap;
+}
+
+.name-initial {
+    text-transform: uppercase;
+}
+
+.wedding-word {
+    position: relative;
+    display: inline-block;
+    font-size: clamp(3rem, 7vw, 5rem);
+    padding: 0 0.18em 0.32em;
+}
+
+.wedding-word::after {
+    position: absolute;
+    right: 2%;
+    bottom: 0.12em;
+    left: 2%;
+    height: 4px;
+    content: "";
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, #9b6811 10%, #f8e7a1 28%, #d4a638 45%, #fff7d6 50%, #d4a638 58%, #f8e7a1 76%, #9b6811 90%, transparent);
+    box-shadow: 0 0 4px rgba(255, 242, 189, 0.95), 0 2px 9px rgba(155, 104, 17, 0.8);
+}
+
+.wedding-word::before {
+    position: absolute;
+    bottom: calc(0.12em - 3px);
+    left: 50%;
+    width: 9px;
+    height: 9px;
+    content: "";
+    border: 1px solid #fff2bd;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff9db, #e0b94e 55%, #9b6811);
+    transform: translateX(-50%);
+    box-shadow: 0 0 7px rgba(255, 242, 189, 0.95), 0 0 14px rgba(212, 166, 56, 0.85);
+}
+
+@keyframes golden-shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes notes-float-left {
+    0% {
+        opacity: 0;
+        transform: translate(0, calc(-50% + var(--note-start-lift))) scale(0.7);
+    }
+    8% {
+        opacity: 1;
+    }
+    38% {
+        opacity: 0.9;
+    }
+    98% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-110vw, calc(-50% + var(--note-lift))) scale(1.15) rotate(-18deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flying-butterfly {
+        top: 1rem;
+        right: 1rem;
+        left: auto;
+        offset-path: none;
+        offset-rotate: 0deg;
+        animation: none;
+        transform: none;
+        will-change: auto;
+    }
+
+    body::before,
+    body::after {
+        animation: none;
+    }
+
+    .ceremony-reels {
+        scroll-behavior: auto;
+    }
+
+    .invitation-intro {
+        padding-bottom: 3rem;
+    }
+
+    .hero {
+        position: relative;
+        height: auto;
+        min-height: 60vh;
+        min-height: 60svh;
+        margin-bottom: 3rem;
+        padding-top: clamp(8rem, 22vh, 12rem);
+    }
+
+    .hero::before {
+        opacity: 1;
+        transform: none;
+        will-change: auto;
+    }
+
+    .hero::after {
+        opacity: 0.3;
+        transform: none;
+        will-change: auto;
+    }
+
+    .wedding-title {
+        transform: none;
+        opacity: 1;
+        animation: none;
+        will-change: auto;
+    }
+
+    .leaf,
+    .flower,
+    .music-notes > span,
+    .diya-flame,
+    .diya-halo {
+        animation: none;
+        opacity: 0.75;
+    }
+
+    .wedding-diya {
+        animation: none;
+    }
+
+    .procession-track,
+    .carrier-shin {
+        animation: none;
+    }
+
+    .carrier-upper-body,
+    .palki-load,
+    .palki-pole,
+    .palki-tassel,
+    .village-birds {
+        animation: none;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        gap: 1.25rem;
+    }
+
+    .future-content-space {
+        min-height: max(45svh, 18rem, calc(clamp(110px, 40vw, 150px) + clamp(7rem, 35svh, 12rem)));
+        margin-bottom: -1.25rem;
+    }
+
+    .future-content-space::before {
+        top: -1.25rem;
+        height: calc(clamp(110px, 40vw, 150px) + 1.25rem);
+    }
+
+    .wedding-procession {
+        top: 0;
+        height: clamp(110px, 40vw, 150px);
+    }
+
+    .page-bottom-decoration {
+        height: clamp(7rem, 35svh, 12rem);
+    }
+
+    .page-bottom-alpona {
+        top: calc(clamp(110px, 40vw, 150px) + 0.5rem);
+        width: clamp(3rem, 12vw, 4rem);
+    }
+
+    .page-bottom-thank-you {
+        bottom: 4.5rem;
+    }
+
+    .bou-bhat {
+        min-height: max(100svh, 40rem);
+        background-size: 100% 100%, auto 48%;
+        background-position: center, center 1rem;
+    }
+
+    .bou-bhat-poem {
+        inset: auto 0 1.5rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0 1.25rem;
+    }
+
+    .bou-bhat-poem-side {
+        width: 100%;
+        font-size: clamp(1rem, 4vw, 1.2rem);
+        line-height: 1.7;
+    }
+
+    .invitation-intro {
+        gap: 1.25rem;
+        margin-bottom: -1.25rem;
+        padding-bottom: max(16svh, 8rem);
+    }
+
+    .invitation-intro::before,
+    .invitation-intro::after {
+        height: max(32svh, 14rem);
+    }
+
+    .hero {
+        height: 100vh;
+        height: 100svh;
+        min-height: 0;
+        margin-bottom: 0;
+        padding: 0;
+    }
+
+    .wedding-title {
+        top: auto;
+        max-width: 100%;
+        box-sizing: border-box;
+        transform: scale(var(--hero-title-scale, 1));
+        transform-origin: center;
+        opacity: var(--hero-title-opacity, 1);
+        will-change: transform, opacity;
+    }
+
+    .wedding-clock {
+        margin: 0;
+    }
+
+    .couple-names {
+        max-width: 100%;
+        font-size: clamp(2rem, 9vw, 3.2rem);
+        white-space: normal;
+    }
+
+    .wedding-word {
+        font-size: clamp(2.8rem, 13vw, 4.4rem);
+    }
+
+    .shehnai-section {
+        min-height: 8rem;
+        gap: 1rem;
+        padding: 0 max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+
+    .wedding-photos-cta {
+        flex-direction: column;
+        align-items: center;
+        padding-right: max(1rem, env(safe-area-inset-right));
+        padding-left: max(1rem, env(safe-area-inset-left));
+    }
+
+    .wedding-photos-link,
+    .wedding-chat-link {
+        width: min(100%, 24rem);
+        min-height: 3.25rem;
+        box-sizing: border-box;
+        padding: 0.7rem 1rem;
+    }
+
+    .event-sections {
+        min-height: 0;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ceremony-reels {
+        flex-basis: auto;
+        height: auto;
+        overflow: visible;
+    }
+
+    .ceremony-reels > .event-sections {
+        grid-auto-rows: minmax(100vh, auto);
+        grid-auto-rows: minmax(100svh, auto);
+    }
+
+    .event-section,
+    .bou-bhat {
+        min-height: 60vh;
+        min-height: 60svh;
+        padding: 1.25rem;
+    }
+
+    .event-section {
+        min-height: max(50vh, 18rem);
+        min-height: max(50svh, 18rem);
+    }
+
+    .ceremony-reels .event-section {
+        min-height: 100vh;
+        min-height: 100svh;
+    }
+
+    .bou-bhat {
+        min-height: max(100svh, 40rem);
+    }
+
+    .ceremony-reels .bou-bhat {
+        min-height: 100vh;
+        min-height: 100svh;
+    }
+
+    .event-title-card {
+        max-width: calc(100vw - 3rem);
+        box-sizing: border-box;
+    }
+
+    .event-title {
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+    }
+
+    .first-ceremony-section .event-list {
+        right: 1.25rem;
+    }
+
+    .bor-boron-section .event-list {
+        width: calc(100% - 2rem);
+        max-width: calc(100% - 2rem);
+    }
+
+    .bor-boron-section .event-title-card {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .saptapadi-section .event-title-card {
+        width: 100%;
+    }
+
+    .music-start-button {
+        right: max(1rem, env(safe-area-inset-right));
+        bottom: max(1rem, env(safe-area-inset-bottom));
+    }
+}
+
+@media (max-width: 767px) and (max-height: 420px) {
+    .page-bottom-decoration {
+        height: 12rem;
+    }
+
+    .future-content-space {
+        min-height: calc(clamp(110px, 40vw, 150px) + 12rem);
+    }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: reduce) {
+    .invitation-intro {
+        padding-bottom: 1.25rem;
+    }
+
+    .hero {
+        height: auto;
+        min-height: max(44svh, 20rem);
+        margin-bottom: 0;
+    }
+}

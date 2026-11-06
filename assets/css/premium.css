@@ -1,0 +1,304 @@
+/* ==========================================================================
+   Wedding Invitation — Premium Layer
+   Mobile-first, additive design upgrades. Load AFTER the theme stylesheets.
+   Everything here is progressive enhancement; removing it keeps the base site
+   fully functional.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens & motion language
+   -------------------------------------------------------------------------- */
+:root {
+    --premium-ease-out: cubic-bezier(0.16, 1, 0.3, 1);      /* expo out — buttery */
+    --premium-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); /* springy, tactile */
+    --premium-ease-inout: cubic-bezier(0.65, 0.05, 0.36, 1);
+    --premium-dur-fast: 320ms;
+    --premium-dur-base: 600ms;
+    --premium-dur-slow: 900ms;
+
+    --premium-gold: #c99a45;
+    --premium-gold-soft: #e8cc8a;
+    --premium-gold-deep: #8f6420;
+    --premium-ink: #43301e;
+    --premium-burgundy: #7f1d33;
+    --premium-cream: #fffaf0;
+    --premium-line: rgba(176, 131, 49, 0.28);
+
+    --premium-shadow-soft: 0 10px 30px -12px rgba(67, 48, 30, 0.35);
+    --premium-shadow-card: 0 18px 44px -16px rgba(67, 48, 30, 0.4), 0 2px 8px rgba(67, 48, 30, 0.12);
+    --premium-shadow-gold: 0 8px 24px -10px rgba(176, 131, 49, 0.55);
+}
+
+/* Fluid, eased scrolling for the whole page. */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* With smooth scrolling active, relax the mandatory snap so the two cooperate
+   (the JS still aligns sections to the viewport while scrolling). */
+html.wedding-home {
+    scroll-snap-type: y proximity;
+}
+
+/* Font rendering polish */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* --------------------------------------------------------------------------
+   1b. Premium Bengali-style couple title
+   Strong Bengali serif names joined by an elegant cursive "weds".
+   -------------------------------------------------------------------------- */
+.wedding-title .couple-names {
+    font-family: "Noto Serif Bengali", "Cinzel", Georgia, serif;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    line-height: 1.12;
+    text-transform: none;
+}
+
+.wedding-title .weds-word {
+    font-family: "Great Vibes", cursive;
+    font-weight: 400;
+    font-size: 0.6em;
+    letter-spacing: 0.04em;
+    margin: 0 0.06em;
+    vertical-align: 0.08em;
+    color: #f6d77a;
+}
+
+/* A delicate Bengali-style flourish under the names */
+@media (prefers-reduced-motion: no-preference) {
+    .wedding-title .couple-names::after {
+        content: "";
+        display: block;
+        width: min(56%, 14rem);
+        height: 2px;
+        margin: 0.35em auto 0;
+        background: linear-gradient(90deg, transparent, rgba(212, 166, 56, 0.95) 25%, rgba(255, 244, 190, 1) 50%, rgba(212, 166, 56, 0.95) 75%, transparent);
+        box-shadow: 0 1px 6px rgba(212, 166, 56, 0.55);
+        border-radius: 999px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   2. Entrance / reveal choreography
+   Motion states are opt-in: they only activate when JS adds the `motion` class
+   to <html> (so no-JS users always see content). Respects reduced motion.
+   -------------------------------------------------------------------------- */
+html.motion .reveal {
+    opacity: 0;
+    transform: translateY(26px) scale(0.985);
+    filter: blur(6px);
+    will-change: transform, opacity, filter;
+    transition:
+        opacity var(--premium-dur-base) var(--premium-ease-out),
+        transform var(--premium-dur-base) var(--premium-ease-out),
+        filter var(--premium-dur-base) var(--premium-ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+html.motion .reveal.is-inview {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+}
+
+/* Directional variants */
+html.motion .reveal.from-left {
+    transform: translateX(-34px) scale(0.99);
+}
+html.motion .reveal.from-right {
+    transform: translateX(34px) scale(0.99);
+}
+html.motion .reveal.from-left.is-inview,
+html.motion .reveal.from-right.is-inview {
+    transform: none;
+}
+
+/* Stagger helper: children get progressive delays when JS sets the counter */
+html.motion .stagger > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+        opacity var(--premium-dur-base) var(--premium-ease-out),
+        transform var(--premium-dur-base) var(--premium-ease-out);
+    transition-delay: calc(var(--stagger-index, 0) * 90ms);
+}
+html.motion .stagger.is-inview > * {
+    opacity: 1;
+    transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. Buttery micro-interactions
+   -------------------------------------------------------------------------- */
+
+/* Cards: lift + gold glow + gentle rotation on hover, tactile press on tap */
+.wedding-card-option {
+    transition:
+        transform var(--premium-dur-base) var(--premium-ease-spring),
+        box-shadow var(--premium-dur-base) var(--premium-ease-out),
+        background-color var(--premium-dur-fast) var(--premium-ease-out);
+    -webkit-tap-highlight-color: transparent;
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .wedding-card-option:hover {
+        transform: translateY(-6px) scale(1.03) rotate(-0.5deg);
+        box-shadow:
+            0 22px 40px -14px rgba(104, 27, 49, 0.4),
+            0 0 0 1px rgba(255, 242, 183, 0.75),
+            0 0 22px rgba(212, 166, 56, 0.4);
+    }
+}
+.wedding-card-option:active {
+    transform: translateY(-1px) scale(0.97);
+    transition-duration: 120ms;
+}
+
+/* CTAs: spring press + shine */
+.wedding-photos-link,
+.wedding-chat-link,
+.music-start-button {
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        transform var(--premium-dur-base) var(--premium-ease-spring),
+        box-shadow var(--premium-dur-base) var(--premium-ease-out),
+        background-color var(--premium-dur-fast) var(--premium-ease-out),
+        filter var(--premium-dur-fast) var(--premium-ease-out);
+}
+.wedding-photos-link:active,
+.wedding-chat-link:active,
+.music-start-button:active {
+    transform: translateY(0) scale(0.95);
+    transition-duration: 130ms;
+}
+
+/* Shehnai emblem: breathe softly, spring on hover */
+.shehnai-link .shehnai-emblem {
+    transition:
+        transform var(--premium-dur-base) var(--premium-ease-spring),
+        box-shadow var(--premium-dur-base) var(--premium-ease-out),
+        filter var(--premium-dur-base) var(--premium-ease-out);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .shehnai-link:hover .shehnai-emblem {
+        transform: translateY(-3px) scale(1.06) rotate(2deg);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   4. Premium surface treatment — glass cards, gold hairlines, shadows
+   -------------------------------------------------------------------------- */
+
+/* Ceremony title cards: refined frosted glass with a warm gold hairline */
+.event-title-card,
+.event-title {
+    border-color: rgba(255, 244, 205, 0.85);
+    box-shadow:
+        0 1px 2px rgba(68, 42, 22, 0.18),
+        0 18px 40px -18px rgba(68, 42, 22, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 0 0 1px rgba(201, 154, 69, 0.18);
+    -webkit-backdrop-filter: blur(10px) saturate(1.25);
+    backdrop-filter: blur(10px) saturate(1.25);
+}
+
+/* A soft gold underline glow under ceremony titles */
+.event-title::after {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201, 154, 69, 0.9) 25%, rgba(240, 220, 170, 1) 50%, rgba(201, 154, 69, 0.9) 75%, transparent);
+    box-shadow: 0 1px 6px rgba(201, 154, 69, 0.5);
+}
+
+/* Bottom thank-you: add a gentle floating lift */
+.page-bottom-thank-you {
+    animation: premium-thank-you-float 6s ease-in-out infinite;
+    will-change: transform;
+}
+@keyframes premium-thank-you-float {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .page-bottom-thank-you { animation: none; }
+}
+
+/* Alpona medallion: slow, stately rotation */
+.page-bottom-alpona .alpona-petals {
+    transform-origin: 60px 60px;
+    animation: premium-alpona-spin 80s linear infinite;
+}
+@keyframes premium-alpona-spin {
+    to { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .page-bottom-alpona .alpona-petals { animation: none; }
+}
+
+/* --------------------------------------------------------------------------
+   5. Custom focus rings (premium & accessible)
+   -------------------------------------------------------------------------- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--premium-gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Mobile-first refinements
+   Slightly larger tap targets, comfortable rhythm, full-bleed safe areas.
+   -------------------------------------------------------------------------- */
+.wedding-photos-link,
+.wedding-chat-link {
+    letter-spacing: 0.01em;
+}
+
+/* Keep the bottom safe-area clear of the scroll cue / music controls */
+body.wedding-home {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Give the hero title a touch more breathing room on small screens */
+@media (max-width: 480px) {
+    .wedding-title {
+        padding: 1.25rem 0.6rem;
+    }
+    .wedding-photos-link,
+    .wedding-chat-link {
+        min-height: 3.5rem;
+        padding: 0.8rem 1.1rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   7. Reduced motion — collapse everything to static, no performance cost
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    html.motion .reveal,
+    html.motion .stagger > * {
+        opacity: 1;
+        transform: none;
+        filter: none;
+        transition: none;
+    }
+    .wedding-card-option,
+    .wedding-photos-link,
+    .wedding-chat-link,
+    .music-start-button,
+    .shehnai-link .shehnai-emblem {
+        transition: none;
+    }
+    .leaf, .flower, .music-notes > span,
+    .procession-track, .carrier-shin,
+    .carrier-upper-body, .palki-load, .palki-pole, .palki-tassel {
+        animation: none !important;
+    }
+}

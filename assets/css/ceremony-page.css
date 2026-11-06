@@ -1,0 +1,244 @@
+.ceremony-detail-page {
+    display: block;
+    min-height: 100vh;
+    gap: 0;
+    padding: 0;
+    background: #f7f0e2;
+}
+
+.ceremony-back-link {
+    position: fixed;
+    z-index: 5;
+    top: 1rem;
+    left: 1rem;
+    display: inline-flex;
+    min-height: 2.75rem;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 0.65rem 0.9rem;
+    border-radius: 0.4rem;
+    background: rgba(255, 250, 239, 0.9);
+    color: #3b0d1b;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(45, 28, 20, 0.22);
+}
+
+.ceremony-back-link:focus-visible {
+    outline: 3px solid #b08331;
+    outline-offset: 3px;
+}
+
+.ceremony-file-page {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    min-height: 220vh;
+    padding: clamp(6rem, 14vh, 9rem) clamp(1rem, 5vw, 3rem) 2rem;
+    overflow: hidden;
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.ceremony-file-page.bor-boron-section {
+    background-image:
+        linear-gradient(rgba(255, 220, 95, 0.58), rgba(255, 220, 95, 0.58)),
+        url("../images/WhatsApp Image 2026-11-01 at 8.13.16 PM.jpeg");
+    background-position: center;
+    background-size: 100% 100%, contain;
+    background-color: #f5d879;
+}
+
+.ceremony-file-page::before {
+    position: absolute;
+    z-index: 0;
+    inset: 1rem;
+    content: "";
+    border: 1px solid rgba(176, 131, 49, 0.45);
+    pointer-events: none;
+}
+
+.ceremony-file-heading {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    font-family: "Noto Serif Bengali", serif;
+    color: #111;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95);
+}
+
+.ceremony-file-heading h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+}
+
+.ceremony-file-heading p {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+}
+
+.ceremony-extra-content {
+    position: relative;
+    z-index: 1;
+    min-height: 150vh;
+    margin-top: 2rem;
+}
+
+.ceremony-photo-gallery {
+    box-sizing: border-box;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    border: 1px solid rgba(176, 131, 49, 0.55);
+    border-radius: 0.75rem;
+    background: rgba(255, 250, 239, 0.94);
+    box-shadow: 0 8px 24px rgba(45, 28, 20, 0.7);
+    color: #3b0d1b;
+    text-align: center;
+}
+
+.ceremony-photo-gallery h2 {
+    margin: 0 0 0.75rem;
+    font-family: "Noto Serif Bengali", serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+}
+
+.ceremony-photo-gallery p {
+    margin: 0.75rem 0 1.25rem;
+    line-height: 1.6;
+}
+
+.ceremony-photo-gallery-description {
+    color: #3b0d1b;
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95), 0 -1px 0 rgba(59, 13, 27, 0.3);
+}
+
+.ceremony-photo-gallery-link {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem;
+    box-sizing: border-box;
+    padding: 0.35rem;
+    border-radius: 0.65rem;
+    background: linear-gradient(145deg, #a52c4b, #681b31);
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(45, 28, 20, 0.2);
+    animation: cta-gold-glow 2.4s ease-in-out infinite alternate;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+    text-decoration: none;
+}
+
+.ceremony-photo-gallery-link::before {
+    position: absolute;
+    top: -60%;
+    bottom: -60%;
+    left: -45%;
+    width: 30%;
+    content: "";
+    background: linear-gradient(90deg, transparent, rgba(255, 245, 205, 0.65), transparent);
+    transform: translateX(-220%) rotate(18deg);
+    animation: cta-shine-sweep 4.5s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.ceremony-photo-gallery-icon {
+    flex: 0 0 auto;
+    width: 1.8rem;
+    height: 1.8rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
+}
+
+.ceremony-photo-gallery-link span {
+    color: #fff;
+    font-size: 0.58rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.ceremony-photo-gallery-link:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(145deg, #8b1e34, #501326);
+    box-shadow:
+        0 6px 15px rgba(45, 28, 20, 0.28),
+        0 0 20px rgba(255, 222, 125, 0.95),
+        0 0 34px rgba(255, 240, 190, 0.55),
+        inset 0 1px 0 rgba(255, 250, 225, 0.85);
+}
+
+.ceremony-photo-gallery-link:focus-visible {
+    outline: 3px solid #b08331;
+    outline-offset: 3px;
+}
+
+.ceremony-chat-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+    width: 4rem;
+    height: 4rem;
+    margin: 0.5rem;
+    box-sizing: border-box;
+    padding: 0.35rem;
+    border-radius: 0.65rem;
+}
+
+.ceremony-chat-link .wedding-chat-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
+}
+
+.ceremony-chat-link span {
+    font-size: 0.58rem;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.ceremony-chat-link:focus-visible {
+    outline: 3px solid #b08331;
+    outline-offset: 3px;
+}
+
+@media (max-width: 767px) {
+    .ceremony-file-page {
+        min-height: 100vh;
+        min-height: 100svh;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .ceremony-file-page::before {
+        inset: 0.65rem;
+    }
+
+    .ceremony-photo-gallery {
+        padding: 1rem;
+    }
+
+    .ceremony-extra-content {
+        min-height: 0;
+    }
+
+    .ceremony-photo-gallery-link {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .ceremony-chat-link {
+        width: 4rem;
+        height: 4rem;
+    }
+}
